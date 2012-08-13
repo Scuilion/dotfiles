@@ -50,3 +50,5 @@ noremap <A-p> <C-W>p
 noremap <A-o> <C-W>o
 noremap <A-n> <C-W>n
 noremap <A-r> <C-W>r
+
+set directory=.,$TEMP
