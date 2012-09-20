@@ -16,6 +16,7 @@ set smartcase
 set incsearch
 set hlsearch
 set ruler
+set nowrap
 inoremap jj <Esc>
 
 " set ; to : in command mode
