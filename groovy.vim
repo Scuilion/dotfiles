@@ -78,7 +78,7 @@ syn keyword groovyConstant        null
 syn keyword groovyTypedef         this super
 syn keyword groovyOperator        new instanceof
 syn keyword groovyType            boolean char byte short int long float double
-syn keyword groovyType            void
+syn keyword groovyType            void def
 syn keyword groovyType		  Integer Double Date Boolean Float String Array Vector List
 syn keyword groovyStatement       return
 syn keyword groovyStorageClass    static synchronized transient volatile final strictfp serializable
@@ -156,7 +156,7 @@ syn match groovyExternal		'^#!.*[/\\]groovy\>'
 syn match groovyExceptions        "\<Exception\>\|\<[A-Z]\{1,}[a-zA-Z0-9]*Exception\>"
 
 " Groovy JDK stuff
-syn keyword groovyJDKBuiltin    as def in
+syn keyword groovyJDKBuiltin    as in
 syn keyword groovyJDKOperOverl  div minus plus abs round power multiply 
 syn keyword groovyJDKMethods 	each call inject sort print println 
 syn keyword groovyJDKMethods    getAt putAt size push pop toList getText writeLine eachLine readLines
@@ -247,6 +247,7 @@ syn match   groovySpecialError     contained "\\."
 syn match   groovySpecialCharError contained "[^']"
 syn match   groovySpecialChar      contained "\\\([4-9]\d\|[0-3]\d\d\|[\"\\'ntbrf]\|u\x\{4\}\)"
 syn region  groovyString          start=+"+ end=+"+ end=+$+ contains=groovySpecialChar,groovySpecialError,@Spell,groovyELExpr
+
 syn region  groovyString          start=+'+ end=+'+ end=+$+ contains=groovySpecialChar,groovySpecialError,@Spell
 syn region  groovyString          start=+"""+ end=+"""+ contains=groovySpecialChar,groovySpecialError,@Spell,groovyELExpr
 syn region  groovyString          start=+'''+ end=+'''+ contains=groovySpecialChar,groovySpecialError,@Spell
@@ -287,7 +288,7 @@ if exists("groovy_highlight_functions")
     " two things:
     "   1. class names are always capitalized (ie: Button)
     "   2. method names are never capitalized (except constructors, of course)
-    syn region groovyFuncDef start=+^\s\+\(\(public\|protected\|private\|static\|abstract\|final\|native\|synchronized\)\s\+\)*\(\(void\|boolean\|char\|byte\|short\|int\|long\|float\|double\|\([A-Za-z_][A-Za-z0-9_$]*\.\)*[A-Z][A-Za-z0-9_$]*\)\(<[^>]*>\)\=\(\[\]\)*\s\+[a-z][A-Za-z0-9_$]*\|[A-Z][A-Za-z0-9_$]*\)\s*([^0-9]+ end=+)+ contains=groovyScopeDecl,groovyType,groovyStorageClass,groovyComment,groovyLineComment,@groovyClasses
+    syn region groovyFuncDef start=+^\s\+\(\(public\|protected\|private\|static\|abstract\|final\|native\|synchronized\)\s\+\)*\(\(void\|def\|boolean\|char\|byte\|short\|int\|long\|float\|double\|\([A-Za-z_][A-Za-z0-9_$]*\.\)*[A-Z][A-Za-z0-9_$]*\)\(<[^>]*>\)\=\(\[\]\)*\s\+[a-z][A-Za-z0-9_$]*\|[A-Z][A-Za-z0-9_$]*\)\s*([^0-9]+ end=+)+ contains=groovyScopeDecl,groovyType,groovyStorageClass,groovyComment,groovyLineComment,@groovyClasses
   endif
   syn match  groovyBraces  "[{}]"
   syn cluster groovyTop add=groovyFuncDef,groovyBraces
