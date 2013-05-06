@@ -53,3 +53,11 @@ noremap <A-n> <C-W>n
 noremap <A-r> <C-W>r
 
 set directory=.,$TEMP
+
+"quick font change
+if  has("gui_running") && (has("win32") || has("win64")) 
+    nnoremap <C-Up> :silent let &guifont=substitute(&guifont, ':h\zs\d\+', '\=submatch(0)+1', '')<CR> 
+    nnoremap <C-Down> :silent let &guifont=substitute(&guifont, ':h\zs\d\+', '\=submatch(0)-1', '')<CR> 
+endif 
+
+ca w wa
