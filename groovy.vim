@@ -202,7 +202,7 @@ syn cluster groovyTop add=groovyExternal,groovyError,groovyError,groovyBranch,gr
 
 
 " Comments
-syn keyword groovyTodo             contained TODO FIXME XXX
+"syn keyword groovyTodo             contained TODO FIXME XXX
 if exists("groovy_comment_strings")
   syn region  groovyCommentString    contained start=+"+ end=+"+ end=+$+ end=+\*/+me=s-1,he=s-1 contains=groovySpecial,groovyCommentStar,groovySpecialChar,@Spell
   syn region  groovyComment2String   contained start=+"+  end=+$\|"+  contains=groovySpecial,groovySpecialChar,@Spell
