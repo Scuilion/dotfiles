@@ -60,4 +60,5 @@ if  has("gui_running") && (has("win32") || has("win64"))
     nnoremap <C-Down> :silent let &guifont=substitute(&guifont, ':h\zs\d\+', '\=submatch(0)-1', '')<CR> 
 endif 
 
+"always save all
 ca w wa
