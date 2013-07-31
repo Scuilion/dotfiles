@@ -64,3 +64,6 @@ endif
 ca w wa
 "always overwrite session
 ca mks mks!
+"replace back slashes with forward
+ca fs s/\\/\//g
+ca fsg %s/\\/\//g
