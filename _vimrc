@@ -67,3 +67,5 @@ ca mks mks!
 "replace back slashes with forward
 ca fs s/\\/\//g
 ca fsg %s/\\/\//g
+"open window maximized. 'x' on an English Windows version.'n' on a French one
+au GUIEnter * simalt ~x "
