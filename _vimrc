@@ -33,8 +33,8 @@ set expandtab
 set smarttab
  
 " Who wants an 8 character tab? Not me!
-set shiftwidth=3
-set softtabstop=3
+set shiftwidth=4
+set softtabstop=4
 
 " keeps swap files local!
 set directory=~\vimfiles\swap\
