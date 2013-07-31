@@ -62,3 +62,5 @@ endif
 
 "always save all
 ca w wa
+"always overwrite session
+ca mks mks!
