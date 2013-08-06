@@ -1,4 +1,4 @@
-set guifont=Consolas:h10
+set guifont=Consolas:h10:cANSI
 set guioptions=
 
 colorscheme wombat 
@@ -17,6 +17,9 @@ set incsearch
 set hlsearch
 set ruler
 set nowrap
+"auto load files
+:set autoread 
+
 inoremap jj <Esc>
 
 " set ; to : in command mode
