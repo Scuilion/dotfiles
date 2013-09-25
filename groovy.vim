@@ -193,8 +193,8 @@ syn keyword groovyLabel           default
 "delete
 if !exists("groovy_allow_cpp_keywords")
   syn keyword groovyError auto extern friend inline redeclared 
-  syn keyword groovyError register signed sizeof struct template typedef union
-  syn keyword groovyError unsigned operator
+  syn keyword groovyError register sizeof struct template typedef union
+  syn keyword groovyError operator
 endif
 
 " The following cluster contains all groovy groups except the contained ones
