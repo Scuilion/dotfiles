@@ -3,11 +3,6 @@
 ; Platform:       WinXP
 ; Author:         Kevin O'Neal <kevin.oneal@kronos.com>
 ;
-; Eclipse Exporter
-;     Key: F6 
-;     Operation: Only in Eclipse and open files.       
-;     Info: One example is given for exporting jsp files to the deployment folder.  
-;           Add any necessary file name to the script to export and export location.
 ; WFC SuperUser
 ;     Key: F12
 ;     Operation: Works in IE, Firefox and Chrome.
