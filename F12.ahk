@@ -23,67 +23,6 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 SetTitleMatchMode, RegEx 
 
-;This hot key will export the active file to the directory you specify.
-;If the file is not recognized there will be a message box with that indicated.
-;If the program does not see the overwrite warning dialog at the end of the export
-;process it will warn the user that they may have selected the wrong location.
-;#IfWinActive ahk_class (SWT)
-F2::
-;save the file first
-Send ^s
-;Send ^b
-;Find the active window name and use a RegEx to get the file name from that
-WinGetTitle, myVar, A
-FoundPos := RegExMatch(myVar , "([A-Za-z\-]*)\.(jsp|xml|js)",FileName)
-
-
-;MsgBox %FileName%
-;This is where you can add new export location based on file names.
-if ( FileName = "activity-lookup.jsp" or FileName = "activity-config.jsp" or FileName = "payCodeAction-editor.jsp"){
-   FilePath = C:\Kronos\jboss\server\wfc\deploy\wfc.ear\wfc.war\applications\wfa\html 
-}
-else if (FileName = "essLogonProcessing.jsp" or FileName = "ProcessForm.jsp" or FileName = "webFormsLogon.jsp" or FileName = "essLogon.jsp"){
-   FilePath = C:\Kronos\jboss\server\wfc\deploy\wfc.ear\wfc.war\applications\wfa\html\Collector
-}
-else if(FileName = "accessibility.jsp"){
-   FilePath = C:\Kronos\jboss\server\wfc\deploy\wfc.ear\wfc.war\applications\brc\html
-}
-else if(FileName = "hyperfind.jsp" or FileName = "deviceTypeList.jsp" or FileName = "timePeriod.jsp" or FileName = "treatmentExport.jsp"){
-	FilePath = C:\Kronos\jboss\server\wfc\deploy\wfc.ear\wfc.war\applications\brc\html   
-}
-else if(FileName = "brc_exception_strings.properties"){
-	FilePath = C:\Kronos\jboss\server\wfc\deploy\wfc.ear\wfc.war\applications\brc\properties 
-}
-else if(FileName = "MenuItem.xml"){
-	FilePath = C:\Kronos\jboss\server\wfc\deploy\wfc.ear\wfc.war\applications\brc\data
-}
-else {
-   MsgBox This file was not recognized. `nCheck your AHK script to verify the file is listed in the if/else statement.
-   return
-}
-;Export command
-Send {Alt}fo
-
-WinWait, Export
-ControlSetText, Edit1, File System 
-Sleep 400
-Send {Enter}
-Send {Enter}
-WinWait, Export
-ControlSetText, Edit2, %FilePath%, Export
-;;Sleep 100
-ControlClick, &Finish, Export,,,,NA
-
-;wait for the overwrite warning box 
-WinWait,  Question,,1
-if ErrorLevel{
-   MsgBox The Overwrite Warning dialog box did not appear. `n You may have tried to save to the wrong folder.
-   return
-}
-Sleep 400
-ControlClick, &Yes, Question,,,,NA
-return
-;#IfWinActive
 
 #IfWinActive ahk_class (IEFrame|Chrome|Mozilla)
 F12::
