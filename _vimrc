@@ -1,3 +1,4 @@
+"reload vimrc :source ~\_vimrc
 set guifont=Consolas:h10:cANSI
 set guioptions=
 
@@ -19,6 +20,13 @@ set ruler
 set nowrap
 "auto load files
 :set autoread 
+"allways sync
+autocmd BufEnter * :syntax sync fromstart
+"if you want to try and spead it up
+"syntax sync minlines=200
+"or make a hot key
+"noremap <F12> <Esc>:syntax sync fromstart<CR>
+"inoremap <F12> <C-o>:syntax sync fromstart<CR>"
 
 inoremap jj <Esc>
 
@@ -70,5 +78,8 @@ ca mks mks!
 "replace back slashes with forward
 ca fs s/\\/\//g
 ca fsg %s/\\/\//g
+"reaplace forward slashes with back
+ca rfs s/\//\\/g
+ca rfsg %s/\//\\/g
 "open window maximized. 'x' on an English Windows version.'n' on a French one
 au GUIEnter * simalt ~x "
