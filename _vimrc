@@ -1,3 +1,5 @@
+call pathogen#infect()
+call pathogen#helptags()
 "reload vimrc :source ~\_vimrc
 set guifont=Consolas:h10:cANSI
 set guioptions=
@@ -83,3 +85,16 @@ ca rfs s/\//\\/g
 ca rfsg %s/\//\\/g
 "open window maximized. 'x' on an English Windows version.'n' on a French one
 au GUIEnter * simalt ~x "
+"for CtrlP
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.class,*.jar,*.html,*.xml " Windows
+let g:ctrlp_working_path_mode = 0
+" Tab view
+noremap gc :tabclose<cr> 
+
+" NERDTtree
+" Store the bookmarks file
+let NERDTreeBookmarksFile=expand("$HOME/.vim-NERDTreeBookmarks")
+let NERDTreeShowBookmarks=1
+let NERDTreeShowHidden=1
+noremap \\ :NERDTreeToggle<CR>
+
