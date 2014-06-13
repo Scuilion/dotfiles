@@ -1,6 +1,6 @@
 call pathogen#infect()
 call pathogen#helptags()
-"reload vimrc :source ~\_vimrc
+
 set guifont=Consolas:h10:cANSI
 set guioptions=
 
