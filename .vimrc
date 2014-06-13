@@ -77,6 +77,7 @@ endif
 ca w wa
 "always overwrite session
 ca mks mks!
+
 "replace back slashes with forward
 ca fs s/\\/\//g
 ca fsg %s/\\/\//g
@@ -85,16 +86,19 @@ ca rfs s/\//\\/g
 ca rfsg %s/\//\\/g
 "open window maximized. 'x' on an English Windows version.'n' on a French one
 au GUIEnter * simalt ~x "
+
 "for CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.class,*.jar,*.html,*.xml " Windows
-let g:ctrlp_working_path_mode = 0
+let g:ctrlp_root_markers = ['.acignore']
+let g:ctrlp_working_path_mode = 'rc'
+
 " Tab view
 noremap gc :tabclose<cr> 
 
 " NERDTtree
-" Store the bookmarks file
 let NERDTreeBookmarksFile=expand("$HOME/.vim-NERDTreeBookmarks")
 let NERDTreeShowBookmarks=1
-let NERDTreeShowHidden=1
 noremap \\ :NERDTreeToggle<CR>
 
