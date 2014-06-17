@@ -50,7 +50,7 @@ set shiftwidth=4
 set softtabstop=4
 
 " keeps swap files local!
-set directory=~\vimfiles\swap\
+" set directory=~\vimfiles\swap\
 
 "fuzzyfind? fuzzybind!
 nnoremap <C-Space> :FufFile<CR>
@@ -64,8 +64,6 @@ noremap <A-p> <C-W>p
 noremap <A-o> <C-W>o
 noremap <A-n> <C-W>n
 noremap <A-r> <C-W>r
-
-set directory=.,$TEMP
 
 "quick font change
 if  has("gui_running") && (has("win32") || has("win64")) 
