@@ -100,5 +100,6 @@ noremap gc :tabclose<cr>
 let NERDTreeBookmarksFile=expand("$HOME/.vim-NERDTreeBookmarks")
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
+noremap <A-m> :NERDTreeFind<cr>
 noremap \\ :NERDTreeToggle<CR>
 
