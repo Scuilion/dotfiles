@@ -92,7 +92,8 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.class,*.jar,*.html,*.xml " Windows
 let g:ctrlp_root_markers = ['.acignore']
-let g:ctrlp_working_path_mode = 'rc'
+let g:ctrlp_working_path_mode = 'a'
+let g:ctrlp_by_filename = 1
 
 " Tab view
 noremap gc :tabclose<cr> 
