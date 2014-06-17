@@ -90,7 +90,7 @@ au GUIEnter * simalt ~x "
 "for CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.class,*.jar,*.html,*.xml " Windows
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.class,*.jar
 let g:ctrlp_root_markers = ['.acignore']
 let g:ctrlp_working_path_mode = 'rc'
 
