@@ -50,7 +50,7 @@ set shiftwidth=4
 set softtabstop=4
 
 " keeps swap files local!
-set directory=~\vimfiles\swap\
+" set directory=~\vimfiles\swap\
 
 "fuzzyfind? fuzzybind!
 nnoremap <C-Space> :FufFile<CR>
@@ -64,8 +64,6 @@ noremap <A-p> <C-W>p
 noremap <A-o> <C-W>o
 noremap <A-n> <C-W>n
 noremap <A-r> <C-W>r
-
-set directory=.,$TEMP
 
 "quick font change
 if  has("gui_running") && (has("win32") || has("win64")) 
@@ -97,7 +95,8 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.class,*.jar
 let g:ctrlp_root_markers = ['.acignore']
-let g:ctrlp_working_path_mode = 'rc'
+let g:ctrlp_working_path_mode = 'a'
+let g:ctrlp_by_filename = 1
 
 " Tab view
 noremap gc :tabclose<cr> 
@@ -106,5 +105,6 @@ noremap gc :tabclose<cr>
 let NERDTreeBookmarksFile=expand("$HOME/.vim-NERDTreeBookmarks")
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
+noremap <A-m> :NERDTreeFind<cr>
 noremap \\ :NERDTreeToggle<CR>
 
