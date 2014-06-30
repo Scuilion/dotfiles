@@ -87,6 +87,11 @@ ca rfsg %s/\//\\/g
 "open window maximized. 'x' on an English Windows version.'n' on a French one
 au GUIEnter * simalt ~x "
 
+" abbreviations
+" all methods
+ab allMethod metaClass.methods*.name.sort().unique()
+
+
 "for CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
