@@ -52,9 +52,6 @@ set softtabstop=4
 " keeps swap files local!
 " set directory=~\vimfiles\swap\
 
-"fuzzyfind? fuzzybind!
-nnoremap <C-Space> :FufFile<CR>
-
 "alt key for moving from file to file
 noremap <A-k> <C-W>k
 noremap <A-j> <C-W>j
@@ -88,7 +85,6 @@ au GUIEnter * simalt ~x "
 " abbreviations
 " all methods
 ab allMethod metaClass.methods*.name.sort().unique()
-
 
 "for CtrlP
 let g:ctrlp_map = '<c-p>'
