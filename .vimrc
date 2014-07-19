@@ -72,7 +72,6 @@ endif
 ca w wa
 "always overwrite session
 ca mks mks!
-
 "replace back slashes with forward
 ca fs s/\\/\//g
 ca fsg %s/\\/\//g
@@ -101,7 +100,8 @@ noremap gc :tabclose<cr>
 let NERDTreeBookmarksFile=expand("$HOME/.vim-NERDTreeBookmarks")
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
-noremap <A-m> :NERDTreeFind<cr>
+let NERDTreeIgnore=['\.swp$']
+noremap <A-m> :NERDTreeFind<CR>
 noremap \\ :NERDTreeToggle<CR>
 
 " Syntastic
