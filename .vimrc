@@ -88,7 +88,7 @@ au GUIEnter * simalt ~x "
 "for CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.class,*.jar
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.class
 let g:ctrlp_root_markers = ['.acignore']
 let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_by_filename = 1
@@ -103,3 +103,14 @@ let NERDTreeChDirMode=2
 noremap <A-m> :NERDTreeFind<cr>
 noremap \\ :NERDTreeToggle<CR>
 
+" Syntastic
+let g:syntastic_javascript_checkers = ['jshint']
+
+let g:syntastic_java_checkers=['javac']
+let g:syntastic_java_javac_config_file_enabled = 1
+
+"open in browser
+noremap <A-b> :exe ':silent !firefox %'<cr>
+
+"recognize gradle file
+au BufNewFile,BufRead *.gradle set filetype=groovy
