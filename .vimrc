@@ -88,7 +88,7 @@ ab allMethod metaClass.methods*.name.sort().unique()
 "for CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.class
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
 let g:ctrlp_root_markers = ['.acignore']
 let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_by_filename = 1
