@@ -24,11 +24,6 @@ set nowrap
 :set autoread 
 "allways sync
 autocmd BufEnter * :syntax sync fromstart
-"if you want to try and spead it up
-"syntax sync minlines=200
-"or make a hot key
-"noremap <F12> <Esc>:syntax sync fromstart<CR>
-"inoremap <F12> <C-o>:syntax sync fromstart<CR>"
 
 inoremap jj <Esc>
 
