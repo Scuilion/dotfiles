@@ -57,6 +57,10 @@ noremap <A-o> <C-W>o
 noremap <A-n> <C-W>n
 noremap <A-r> <C-W>r
 
+"" Copy/Paste
+noremap YY "+y<CR>
+noremap P "+gP<CR>
+
 "quick font change
 if  has("gui_running") && (has("win32") || has("win64")) 
     nnoremap <C-Up> :silent let &guifont=substitute(&guifont, ':h\zs\d\+', '\=submatch(0)+1', '')<CR> 
@@ -73,7 +77,7 @@ ca fsg %s/\\/\//g
 "reaplace forward slashes with back
 ca rfs s/\//\\/g
 ca rfsg %s/\//\\/g
-"open window maximized. 'x' on an English Windows version.'n' on a French one
+"open window maximized. 'x' on an English Windows version.
 au GUIEnter * simalt ~x "
 
 " abbreviations
