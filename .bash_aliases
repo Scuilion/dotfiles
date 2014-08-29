@@ -28,3 +28,5 @@ alias mkdir='mkdir -p'
 
 alias wget="wget -c"
 
+alias sudo='sudo env PATH=$PATH'
+
