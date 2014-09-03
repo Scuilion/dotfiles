@@ -12,6 +12,7 @@ filetype plugin on
 syntax enable
 set autoindent
 set wildmenu
+set ttymouse=xterm2
 set mouse=a
 set backspace=2
 set ignorecase
