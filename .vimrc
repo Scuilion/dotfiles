@@ -114,5 +114,5 @@ let g:syntastic_java_javac_config_file_enabled = 1
 noremap <A-b> :exe ':silent !firefox %'<cr>
 
 "recognize gradle file
-au BufNewFile,BufRead *.gradle set filetype=groovy
-au BufNewFile,BufRead *.story set filetype=groovy
+autocmd BufNewFile,BufRead *.story   set syntax=groovy
+autocmd BufNewFile,BufRead *.gradle   set syntax=groovy
