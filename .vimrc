@@ -115,3 +115,4 @@ noremap <A-b> :exe ':silent !firefox %'<cr>
 
 "recognize gradle file
 au BufNewFile,BufRead *.gradle set filetype=groovy
+au BufNewFile,BufRead *.story set filetype=groovy
