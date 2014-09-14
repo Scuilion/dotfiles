@@ -30,3 +30,6 @@ alias wget="wget -c"
 
 alias sudo='sudo env PATH=$PATH'
 
+mypath(){
+    echo $PATH | tr ':' '\n' | awk '{print "["NR"]"$0}'
+}
