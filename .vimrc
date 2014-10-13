@@ -106,6 +106,7 @@ noremap \\ :NERDTreeToggle<CR>
 
 " Syntastic
 let g:syntastic_javascript_checkers = ['jshint']
+let g:syntasticToggleMode = 'passive'
 let g:syntastic_java_checkers=['javac']
 let g:syntastic_java_javac_config_file_enabled = 1
 
@@ -131,3 +132,7 @@ augroup END
 
 noremap <silent> <leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> <leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+
+"utils
+:inoremap \fp <C-R>=getcwd()<CR>
+
