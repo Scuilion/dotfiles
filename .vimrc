@@ -27,7 +27,6 @@ set nowrap
 autocmd BufEnter * :syntax sync fromstart
 
 inoremap jj <Esc>
-
 " set ; to : in command mode
 noremap : ;
 noremap! : ;
@@ -84,6 +83,7 @@ au GUIEnter * simalt ~x "
 " abbreviations
 " all methods
 ab allMethod metaClass.methods*.name.sort().unique()
+:imap sout<Tab> System.out.println();<Esc>F)i 
 
 "for CtrlP
 let g:ctrlp_map = '<c-p>'
@@ -107,8 +107,9 @@ noremap \\ :NERDTreeToggle<CR>
 " Syntastic
 let g:syntastic_javascript_checkers = ['jshint']
 
-let g:syntastic_java_checkers=['javac']
+let g:syntastic_java_checkers=['javac', 'checkstyle']
 let g:syntastic_java_javac_config_file_enabled = 1
+let g:syntastic_java_checkstyle_conf_file = '/home/kevino/projects/courses/algs4/checkstyle-5.5/checkstyle.xml'
 
 "open in browser
 noremap <A-b> :exe ':silent !firefox %'<cr>
