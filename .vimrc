@@ -12,7 +12,6 @@ filetype plugin on
 syntax enable
 set autoindent
 set wildmenu
-set ttymouse=xterm2
 set mouse=a
 set backspace=2
 set ignorecase
@@ -26,6 +25,7 @@ set nowrap
 "allways sync
 autocmd BufEnter * :syntax sync fromstart
 
+let mapleader = ","
 inoremap jj <Esc>
 " set ; to : in command mode
 noremap : ;
@@ -108,12 +108,33 @@ noremap \\ :NERDTreeToggle<CR>
 let g:syntastic_javascript_checkers = ['jshint']
 
 let g:syntastic_java_checkers=['javac', 'checkstyle']
+let g:syntasticToggleMode = 'passive'
 let g:syntastic_java_javac_config_file_enabled = 1
 let g:syntastic_java_checkstyle_conf_file = '/home/kevino/projects/courses/algs4/checkstyle-5.5/checkstyle.xml'
 
 "open in browser
 noremap <A-b> :exe ':silent !firefox %'<cr>
 
-"recognize gradle file
-autocmd BufNewFile,BufRead *.story   set syntax=groovy
-autocmd BufNewFile,BufRead *.gradle   set syntax=groovy
+"set whitespace characters
+:set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+
+"recognize groovy file
+augroup setSyntax
+    autocmd! 
+    autocmd BufNewFile, BufRead *.story   set syntax=groovy
+    autocmd BufNewFile, BufRead *.gradle   set syntax=groovy
+augroup END
+
+" Commenting blocks of code.
+let b:comment_leader = '# '
+augroup setCommentLeader
+    autocmd! 
+    autocmd FileType c,cpp,java,scala,groovy let b:comment_leader = '// '
+augroup END
+
+noremap <silent> <leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> <leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+
+"utils
+:inoremap \fp <C-R>=getcwd()<CR>
+
