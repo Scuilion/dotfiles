@@ -110,7 +110,6 @@ let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_java_checkers=['javac', 'checkstyle']
 let g:syntasticToggleMode = 'passive'
 let g:syntastic_java_javac_config_file_enabled = 1
-let g:syntastic_java_checkstyle_conf_file = '/home/kevino/projects/courses/algs4/checkstyle-5.5/checkstyle.xml'
 
 "open in browser
 noremap <A-b> :exe ':silent !firefox %'<cr>
