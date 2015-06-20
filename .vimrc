@@ -101,7 +101,7 @@ let NERDTreeBookmarksFile=expand("$HOME/.vim-NERDTreeBookmarks")
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
 let NERDTreeIgnore=['\.swp$']
-noremap <A-m> :NERDTreeFind<CR>
+noremap <C-m> :NERDTreeFind<CR>
 noremap \\ :NERDTreeToggle<CR>
 
 " Syntastic
@@ -128,7 +128,7 @@ augroup END
 let b:comment_leader = '# '
 augroup setCommentLeader
     autocmd! 
-    autocmd FileType c,cpp,java,scala,groovy let b:comment_leader = '// '
+    autocmd FileType gradle,c,cpp,java,scala,groovy let b:comment_leader = '// '
 augroup END
 
 noremap <silent> <leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
@@ -137,3 +137,5 @@ noremap <silent> <leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader
 "utils
 :inoremap \fp <C-R>=getcwd()<CR>
 
+"eliminate trailing white space
+autocmd BufWritePre * :%s/\s\+$//e

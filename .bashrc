@@ -1,6 +1,7 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
+source ~/.bash_git
 
 # If not running interactively, don't do anything
 case $- in
@@ -117,6 +118,36 @@ if [[ ! $TERM =~ screen ]]; then
     exec tmux
 fi
 
-export GRADLE_HOME=/opt/gradle-2.0
+export JAVA_HOME=/opt/jdk1.8.0_45
+export GRADLE_HOME=/opt/gradle-2.4
+export GROOVY_HOME=/opt/groovy-2.3.6
 export JBOSS_HOME=/opt/wildfly-8.1.0.Final-as
-export PATH=$GRADLE_HOME/bin:$JBOSS_HOME/bin:$PATH
+export ALGS_HOME=/home/kevino/projects/courses/algs4
+export PATH=/opt/BeyondCompare/bin:$PATH
+
+#HADOOP VARIABLES START
+export HADOOP_INSTALL=/opt/hadoop-2.4.1
+export PATH=$PATH:$HADOOP_INSTALL/bin
+export PATH=$PATH:$HADOOP_INSTALL/sbin
+export HADOOP_MAPRED_HOME=$HADOOP_INSTALL
+export HADOOP_COMMON_HOME=$HADOOP_INSTALL
+export HADOOP_HDFS_HOME=$HADOOP_INSTALL
+export YARN_HOME=$HADOOP_INSTALL
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_INSTALL/lib/native
+export HADOOP_OPTS="-Djava.library.path=$HADOOP_INSTALL/lib"
+#HADOOP VARIABLES END
+
+export PATH=$JAVA_HOME/bin:$GRADLE_HOME/bin:$JBOSS_HOME/bin:$PATH:$GROOVY_HOME/bin:$ALGS_HOME/bin
+
+function xor {
+    perl -E'sub s2h {
+        unpack "H*", shift
+    };
+    sub h2s {
+        pack "H*", shift
+    };
+    say s2h(h2s(shift) ^ h2s(shift))' $1 $2
+}
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/home/kevino/.gvm/bin/gvm-init.sh" ]] && source "/home/kevino/.gvm/bin/gvm-init.sh"
