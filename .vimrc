@@ -1,10 +1,11 @@
 call pathogen#infect()
 call pathogen#helptags()
-
-set guifont=Consolas:h10:cANSI
+"Consolas
+set guifont=Consolas:h13
+":cANSI
 set guioptions=
 
-colorscheme wombat 
+colorscheme wombat
 set number
 set nocompatible
 filetype on
@@ -21,7 +22,7 @@ set hlsearch
 set ruler
 set nowrap
 "auto load files
-:set autoread 
+:set autoread
 "allways sync
 autocmd BufEnter * :syntax sync fromstart
 
@@ -39,7 +40,7 @@ iunmap ;
 " Spaces are better than a tab character
 set expandtab
 set smarttab
- 
+
 " Who wants an 8 character tab? Not me!
 set shiftwidth=4
 set softtabstop=4
@@ -62,10 +63,10 @@ noremap YY "+y<CR>
 noremap P "+gP<CR>
 
 "quick font change
-if  has("gui_running") && (has("win32") || has("win64")) 
-    nnoremap <C-Up> :silent let &guifont=substitute(&guifont, ':h\zs\d\+', '\=submatch(0)+1', '')<CR> 
-    nnoremap <C-Down> :silent let &guifont=substitute(&guifont, ':h\zs\d\+', '\=submatch(0)-1', '')<CR> 
-endif 
+if  has("gui_running") && (has("win32") || has("win64"))
+    nnoremap <C-Up> :silent let &guifont=substitute(&guifont, ':h\zs\d\+', '\=submatch(0)+1', '')<CR>
+    nnoremap <C-Down> :silent let &guifont=substitute(&guifont, ':h\zs\d\+', '\=submatch(0)-1', '')<CR>
+endif
 
 "always save all
 ca w wa
@@ -77,13 +78,16 @@ ca fsg %s/\\/\//g
 "reaplace forward slashes with back
 ca rfs s/\//\\/g
 ca rfsg %s/\//\\/g
-"open window maximized. 'x' on an English Windows version.
-au GUIEnter * simalt ~x "
+
+if has("win32") || has("win16")
+    "open window maximized. 'x' on an English Windows version.
+    au GUIEnter * simalt ~x "
+endif
 
 " abbreviations
 " all methods
 ab allMethod metaClass.methods*.name.sort().unique()
-:imap sout<Tab> System.out.println();<Esc>F)i 
+:imap sout<Tab> System.out.println();<Esc>F)i
 
 "for CtrlP
 let g:ctrlp_map = '<c-p>'
@@ -94,7 +98,7 @@ let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_by_filename = 1
 
 " Tab view
-noremap gc :tabclose<cr> 
+noremap gc :tabclose<cr>
 
 " NERDTtree
 let NERDTreeBookmarksFile=expand("$HOME/.vim-NERDTreeBookmarks")
@@ -107,9 +111,12 @@ noremap \\ :NERDTreeToggle<CR>
 " Syntastic
 let g:syntastic_javascript_checkers = ['jshint']
 
-let g:syntastic_java_checkers=['javac', 'checkstyle']
 let g:syntasticToggleMode = 'passive'
+let g:syntastic_java_checkers=['javac', 'checkstyle']
 let g:syntastic_java_javac_config_file_enabled = 1
+
+let g:syntastic_java_checkstyle_classpath = 'checkstyle-6.10.1.jar'
+let g:syntastic_java_checkstyle_conf_file = 'google_checks.xml'
 
 "open in browser
 noremap <A-b> :exe ':silent !firefox %'<cr>
@@ -119,7 +126,7 @@ noremap <A-b> :exe ':silent !firefox %'<cr>
 
 "recognize groovy file
 augroup setSyntax
-    autocmd! 
+    autocmd!
     autocmd BufNewFile, BufRead *.story   set syntax=groovy
     autocmd BufNewFile, BufRead *.gradle   set syntax=groovy
 augroup END
@@ -127,7 +134,7 @@ augroup END
 " Commenting blocks of code.
 let b:comment_leader = '# '
 augroup setCommentLeader
-    autocmd! 
+    autocmd!
     autocmd FileType gradle,c,cpp,java,scala,groovy let b:comment_leader = '// '
 augroup END
 
