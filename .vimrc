@@ -40,13 +40,8 @@ iunmap ;
 " Spaces are better than a tab character
 set expandtab
 set smarttab
-
-" Who wants an 8 character tab? Not me!
 set shiftwidth=4
 set softtabstop=4
-
-" keeps swap files local!
-" set directory=~\vimfiles\swap\
 
 "alt key for moving from file to file
 noremap <A-k> <C-W>k
@@ -70,6 +65,7 @@ endif
 
 "always save all
 ca w wa
+ca W w
 "always overwrite session
 ca mks mks!
 "replace back slashes with forward
