@@ -1,5 +1,3 @@
-source ~/.bash_git
-
 # Path to your oh-my-zsh installation.
 export ZSH=/home/kevino/.oh-my-zsh
 
@@ -7,10 +5,14 @@ export ZSH=/home/kevino/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="jonathan"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -47,11 +49,11 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git command-not-found common-aliases gradle sudo vi-mode web-search)
+plugins=(git git-extras gradle)
 
 # User configuration
-export GRADLE_HOME=/opt/gradle-2.4
-export PATH="/opt/jdk1.8.0_45/bin:$GRADLE_HOME/bin:/opt/wildfly-8.1.0.Final-as/bin:/opt/BeyondCompare/bin:/home/kevino/.gvm/vertx/current/bin:/home/kevino/.gvm/springboot/current/bin:/home/kevino/.gvm/lazybones/current/bin:/home/kevino/.gvm/jbake/current/bin:/home/kevino/.gvm/groovyserv/current/bin:/home/kevino/.gvm/groovy/current/bin:/home/kevino/.gvm/griffon/current/bin:/home/kevino/.gvm/grails/current/bin:/home/kevino/.gvm/glide/current/bin:/home/kevino/.gvm/gaiden/current/bin:/home/kevino/.gvm/crash/current/bin:/home/kevino/.gvm/asciidoctorj/current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/opt/groovy-2.3.6/bin:/home/kevino/projects/courses/algs4/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/opt/hadoop-2.4.1/bin:/opt/hadoop-2.4.1/sbin:/opt/groovy-2.3.6/bin:/home/kevino/projects/courses/algs4/bin"
+
+export PATH="/opt/jdk1.8.0_45/bin:/opt/gradle-2.4/bin:/opt/wildfly-8.1.0.Final-as/bin:/opt/BeyondCompare/bin:/home/kevino/.gvm/vertx/current/bin:/home/kevino/.gvm/springboot/current/bin:/home/kevino/.gvm/lazybones/current/bin:/home/kevino/.gvm/jbake/current/bin:/home/kevino/.gvm/groovyserv/current/bin:/home/kevino/.gvm/groovy/current/bin:/home/kevino/.gvm/griffon/current/bin:/home/kevino/.gvm/grails/current/bin:/home/kevino/.gvm/glide/current/bin:/home/kevino/.gvm/gaiden/current/bin:/home/kevino/.gvm/crash/current/bin:/home/kevino/.gvm/asciidoctorj/current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/opt/groovy-2.3.6/bin:/home/kevino/projects/courses/algs4/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/opt/hadoop-2.4.1/bin:/opt/hadoop-2.4.1/sbin:/opt/groovy-2.3.6/bin:/home/kevino/projects/courses/algs4/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -59,18 +61,14 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+fpath=(~/.zsh/completion $fpath)
+autoload -U compinit
+compinit
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -78,10 +76,35 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zcon="vim ~/.zshrc"
+alias ocon="vim ~/.oh-my-zsh"
 
-setopt prompt_subst
-. ~/git-prompt.sh
-export RPROMPT=$'$(__git_ps1 "%s")'
+if command -v tmux>/dev/null; then
+  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+fi
 
+bindkey -v
+bindkey '^Xh' _complete_help
+bindkey jj vi-cmd-mode
+
+export ZSH_LEVEL
+let "ZSH_LEVEL++"
+print -Pn "\e]2;${ZSH_LEVEL}\a"
+
+function zshexit_shelllevel() {
+    let "ZSH_LEVEL--"
+    print -Pn "\e]2;${ZSH_LEVEL}\a"
+}
+zshexit_functions+=(zshexit_shelllevel)
+
+# function chpwd_shelllevel() {
+#     print -Pn "\e]2;${ZSH_LEVEL}\a" #set window name
+# }
+# chpwd_functions+=(chpwd_shelllevel)
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/home/kevino/.gvm/bin/gvm-init.sh" ]] && source "/home/kevino/.gvm/bin/gvm-init.sh"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+source "$HOME/.sdkman/bin/sdkman-init.sh"
