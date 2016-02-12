@@ -49,11 +49,12 @@ ZSH_THEME="jonathan"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras gradle)
+plugins=(git gradle docker common-aliases autojump)
 
 # User configuration
 
-export PATH="/opt/jdk1.8.0_45/bin:/opt/gradle-2.4/bin:/opt/wildfly-8.1.0.Final-as/bin:/opt/BeyondCompare/bin:/home/kevino/.gvm/vertx/current/bin:/home/kevino/.gvm/springboot/current/bin:/home/kevino/.gvm/lazybones/current/bin:/home/kevino/.gvm/jbake/current/bin:/home/kevino/.gvm/groovyserv/current/bin:/home/kevino/.gvm/groovy/current/bin:/home/kevino/.gvm/griffon/current/bin:/home/kevino/.gvm/grails/current/bin:/home/kevino/.gvm/glide/current/bin:/home/kevino/.gvm/gaiden/current/bin:/home/kevino/.gvm/crash/current/bin:/home/kevino/.gvm/asciidoctorj/current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/opt/groovy-2.3.6/bin:/home/kevino/projects/courses/algs4/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/opt/hadoop-2.4.1/bin:/opt/hadoop-2.4.1/sbin:/opt/groovy-2.3.6/bin:/home/kevino/projects/courses/algs4/bin"
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+export PATH="$JAVA_HOME/bin:/opt/jdk1.8.0_45/bin:/opt/gradle-2.4/bin:/opt/wildfly-8.1.0.Final-as/bin:/opt/BeyondCompare/bin:/home/kevino/.gvm/vertx/current/bin:/home/kevino/.gvm/springboot/current/bin:/home/kevino/.gvm/lazybones/current/bin:/home/kevino/.gvm/jbake/current/bin:/home/kevino/.gvm/groovyserv/current/bin:/home/kevino/.gvm/groovy/current/bin:/home/kevino/.gvm/griffon/current/bin:/home/kevino/.gvm/grails/current/bin:/home/kevino/.gvm/glide/current/bin:/home/kevino/.gvm/gaiden/current/bin:/home/kevino/.gvm/crash/current/bin:/home/kevino/.gvm/asciidoctorj/current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/opt/groovy-2.3.6/bin:/home/kevino/projects/courses/algs4/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/opt/hadoop-2.4.1/bin:/opt/hadoop-2.4.1/sbin:/opt/groovy-2.3.6/bin:/home/kevino/projects/courses/algs4/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -77,7 +78,9 @@ compinit
 #
 # Example aliases
 alias zcon="vim ~/.zshrc"
+alias szcon="source ~/.zshrc"
 alias ocon="vim ~/.oh-my-zsh"
+alias port="sudo netstat -nlp"
 
 if command -v tmux>/dev/null; then
   [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
@@ -97,14 +100,8 @@ function zshexit_shelllevel() {
 }
 zshexit_functions+=(zshexit_shelllevel)
 
-# function chpwd_shelllevel() {
-#     print -Pn "\e]2;${ZSH_LEVEL}\a" #set window name
-# }
-# chpwd_functions+=(chpwd_shelllevel)
+export LD_LIBRARY_PATH=/usr/lib/oracle/12.1/client64/lib/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
 
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/home/kevino/.gvm/bin/gvm-init.sh" ]] && source "/home/kevino/.gvm/bin/gvm-init.sh"
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-source "$HOME/.sdkman/bin/sdkman-init.sh"

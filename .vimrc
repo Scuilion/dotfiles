@@ -37,6 +37,10 @@ noremap! ; :
 iunmap :
 iunmap ;
 
+"move to the next row as opposed to the next line
+noremap j gj
+noremap k gk
+
 " Spaces are better than a tab character
 set expandtab
 set smarttab
