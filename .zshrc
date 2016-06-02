@@ -49,7 +49,7 @@ ZSH_THEME="jonathan"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gradle docker common-aliases autojump)
+plugins=(git gradle docker common-aliases zsh-autosuggestions)
 
 # User configuration
 
@@ -79,7 +79,9 @@ compinit
 # Example aliases
 alias zcon="vim ~/.zshrc"
 alias szcon="source ~/.zshrc"
-alias ocon="vim ~/.oh-my-zsh"
+alias vrc="vim ~/.vimrc"
+alias svrc="source ~/.vimrc"
+
 alias port="sudo netstat -nlp"
 
 if command -v tmux>/dev/null; then
@@ -89,6 +91,13 @@ fi
 bindkey -v
 bindkey '^Xh' _complete_help
 bindkey jj vi-cmd-mode
+
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "$terminfo[kcuu1]" up-line-or-beginning-search
+bindkey "$terminfo[kcud1]" down-line-or-beginning-search
 
 export ZSH_LEVEL
 let "ZSH_LEVEL++"
@@ -102,6 +111,6 @@ zshexit_functions+=(zshexit_shelllevel)
 
 export LD_LIBRARY_PATH=/usr/lib/oracle/12.1/client64/lib/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
 
-# export PATH="$HOME/.jenv/bin:$PATH"
-# eval "$(jenv init -)"
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
 
