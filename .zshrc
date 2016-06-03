@@ -114,3 +114,5 @@ export LD_LIBRARY_PATH=/usr/lib/oracle/12.1/client64/lib/${LD_LIBRARY_PATH:+:$LD
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
+source $HOME/.bash_aliases
+
