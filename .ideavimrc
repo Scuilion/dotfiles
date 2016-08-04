@@ -40,10 +40,5 @@ ca fsg %s/\\/\//g
 ca rfs s/\//\\/g
 ca rfsg %s/\//\\/g
 
-" abbreviations
-" all methods
-ab allMethod metaClass.methods*.name.sort().unique()
-:imap sout<Tab> System.out.println();<Esc>F)i
-
 "set whitespace characters
 :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
