@@ -6,8 +6,8 @@ set guifont=Consolas:h13
 set guioptions=
 
 colorscheme wombat
-set number
-set nocompatible
+set number             " show line numbers
+set nocompatible       " better safe than sorry
 filetype on
 filetype plugin on
 syntax enable
@@ -15,8 +15,10 @@ set autoindent
 set wildmenu
 set mouse=a
 set backspace=2
+
 set ignorecase
 set smartcase
+
 set incsearch
 set hlsearch
 set ruler
@@ -28,12 +30,12 @@ autocmd BufEnter * :syntax sync fromstart
 
 let mapleader = ","
 inoremap jj <Esc>
+
 " set ; to : in command mode
 noremap : ;
 noremap! : ;
 noremap ; :
 noremap! ; :
-
 iunmap :
 iunmap ;
 
@@ -109,7 +111,15 @@ noremap <C-m> :NERDTreeFind<CR>
 noremap \\ :NERDTreeToggle<CR>
 
 " Syntastic
-let g:syntastic_javascript_checkers = ['jshint']
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_javascript_checkers = ['jshint']
 
 let g:syntasticToggleMode = 'passive'
 let g:syntastic_java_checkers=['javac', 'checkstyle']
@@ -117,6 +127,8 @@ let g:syntastic_java_javac_config_file_enabled = 1
 
 let g:syntastic_java_checkstyle_classpath = 'checkstyle-6.10.1.jar'
 let g:syntastic_java_checkstyle_conf_file = 'google_checks.xml'
+
+let g:syntastic_scalac_checkers=['scalac']
 
 "open in browser
 noremap <A-b> :exe ':silent !firefox %'<cr>

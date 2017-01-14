@@ -144,3 +144,5 @@ function xor {
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/kevino/.sdkman"
 [[ -s "/home/kevino/.sdkman/bin/sdkman-init.sh" ]] && source "/home/kevino/.sdkman/bin/sdkman-init.sh"
+
+
