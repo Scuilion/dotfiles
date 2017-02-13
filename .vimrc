@@ -22,7 +22,6 @@ set smartcase
 set incsearch
 set hlsearch
 set ruler
-set nowrap
 "auto load files
 :set autoread
 "allways sync
@@ -43,11 +42,17 @@ iunmap ;
 noremap j gj
 noremap k gk
 
-" Spaces are better than a tab character
+" Spaces instead of tab character
 set expandtab
 set smarttab
 set shiftwidth=4
 set softtabstop=4
+
+" For wrapped lines
+set nowrap
+set showbreak=╚
+set linebreak nolist
+
 
 "alt key for moving from file to file
 noremap <A-k> <C-W>k
