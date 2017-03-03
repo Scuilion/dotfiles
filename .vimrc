@@ -77,6 +77,9 @@ endif
 "always save all
 ca w wa
 ca W w
+"force sudo save
+cmap w!! w !sudo tee % >/dev/null
+
 "always overwrite session
 ca mks mks!
 "replace back slashes with forward
@@ -116,16 +119,6 @@ noremap <C-m> :NERDTreeFind<CR>
 noremap \\ :NERDTreeToggle<CR>
 
 " Syntastic
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_javascript_checkers = ['jshint']
-
 let g:syntasticToggleMode = 'passive'
 let g:syntastic_java_checkers=['javac', 'checkstyle']
 let g:syntastic_java_javac_config_file_enabled = 1
@@ -157,6 +150,10 @@ augroup END
 
 noremap <silent> <leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> <leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+
+au BufEnter *.scala setl formatprg=java\ -jar\ ~/bin/cli-assembly-0.2.0-SNAPSHOT.jar\ -f\ -q\ +alignParameters\ +doubleIndentClassDeclaration\ +preserveSpaceBeforeArguments\ --stdin\ --stdout
+au BufEnter *.scala setl equalprg=java\ -jar\ ~/bin/cli-assembly-0.2.0-SNAPSHOT.jar\ -f\ -q\ +alignParameters\ +doubleIndentClassDeclaration\ +preserveSpaceBeforeArguments\ --stdin\ --stdout
+
 
 "utils
 :inoremap \fp <C-R>=getcwd()<CR>
