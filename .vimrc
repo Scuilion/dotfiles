@@ -74,9 +74,11 @@ if  has("gui_running") && (has("win32") || has("win64"))
     nnoremap <C-Down> :silent let &guifont=substitute(&guifont, ':h\zs\d\+', '\=submatch(0)-1', '')<CR>
 endif
 
+"ca stands for command abbreviations
 "always save all
 ca w wa
 ca W w
+ca q1 q!
 "force sudo save
 cmap w!! w !sudo tee % >/dev/null
 
@@ -120,7 +122,9 @@ noremap \\ :NERDTreeToggle<CR>
 
 " Syntastic
 let g:syntasticToggleMode = 'passive'
-let g:syntastic_java_checkers=['javac', 'checkstyle']
+let g:syntastic_ignore_files = ['\m\.sbt$']
+
+"let g:syntastic_java_checkers=['javac', 'checkstyle']
 let g:syntastic_java_javac_config_file_enabled = 1
 
 let g:syntastic_java_checkstyle_classpath = 'checkstyle-6.10.1.jar'

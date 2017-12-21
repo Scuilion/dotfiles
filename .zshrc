@@ -83,6 +83,7 @@ alias szcon="source ~/.zshrc"
 alias vrc="vim ~/.vimrc"
 alias svrc="source ~/.vimrc"
 alias copy="xsel --clipboard"
+alias xclip="xclip -selection c"
 
 alias port="sudo netstat -nlp"
 alias desk="cd /home/kevino/.local/share/applications"
@@ -122,12 +123,13 @@ export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
 export LEIN="$HOME/programs/lein"
-export SCALA_HOME="/usr/share/scala"
+#export SCALA_HOME="/usr/share/scala"
 export ACTIVATOR_HOME="/home/kevino/programs/activator-dist-1.3.10"
 export NGROK="/home/kevino/programs/ngrok"
 export EXERCISM="/home/kevino/programs/exercism"
+export NEXTERCISM="/home/kevino/programs/nextercism"
 
-export PATH="$PATH:$SCALA_HOME/bin:$ACTIVATOR_HOME/bin:$NGROK:$EXERCISM"
+export PATH="$ARTEMIS_HOME\bin:$PATH:$ACTIVATOR_HOME/bin:$NGROK:$NEXTERCISM:$EXERCISM"
 
 source $HOME/.bash_aliases
 source $HOME/.sdkman/bin/sdkman-init.sh
