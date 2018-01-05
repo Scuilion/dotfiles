@@ -56,7 +56,6 @@ plugins=(scala git gradle docker common-aliases zsh-autosuggestions)
 
 export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64"
 export PATH="$JAVA_HOME/bin:/opt/gradle-2.4/bin:/opt/wildfly-8.1.0.Final-as/bin:/opt/BeyondCompare/bin:/home/kevino/.gvm/vertx/current/bin:/home/kevino/.gvm/springboot/current/bin:/home/kevino/.gvm/lazybones/current/bin:/home/kevino/.gvm/jbake/current/bin:/home/kevino/.gvm/groovyserv/current/bin:/home/kevino/.gvm/groovy/current/bin:/home/kevino/.gvm/griffon/current/bin:/home/kevino/.gvm/grails/current/bin:/home/kevino/.gvm/glide/current/bin:/home/kevino/.gvm/gaiden/current/bin:/home/kevino/.gvm/crash/current/bin:/home/kevino/.gvm/asciidoctorj/current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/opt/groovy-2.3.6/bin:/home/kevino/projects/courses/algs4/bin:/opt/hadoop-2.4.1/bin:/opt/hadoop-2.4.1/sbin:/opt/groovy-2.3.6/bin:/home/kevino/projects/courses/algs4/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -119,19 +118,4 @@ zshexit_functions+=(zshexit_shelllevel)
 export LD_LIBRARY_PATH=/usr/lib/oracle/12.1/client64/lib/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
 export ATLAS_HOME=/usr/share/atlassian-plugin-sdk-6.2.6
 
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
-export LEIN="$HOME/programs/lein"
-#export SCALA_HOME="/usr/share/scala"
-export ACTIVATOR_HOME="/home/kevino/programs/activator-dist-1.3.10"
-export NGROK="/home/kevino/programs/ngrok"
-export EXERCISM="/home/kevino/programs/exercism"
-export NEXTERCISM="/home/kevino/programs/nextercism"
-
-export PATH="$ARTEMIS_HOME\bin:$PATH:$ACTIVATOR_HOME/bin:$NGROK:$NEXTERCISM:$EXERCISM"
-
 source $HOME/.bash_aliases
-source $HOME/.sdkman/bin/sdkman-init.sh
-
-source ~/.zshrc_local
