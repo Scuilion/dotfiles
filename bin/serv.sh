@@ -2,7 +2,7 @@
 
 die() { echo "Script failure $0: $@" >&2; exit 111; }
 
-CFG=~/project/config/cfg/servers.cfg
+CFG=$HOME/project/corporate-dotfiles/cfg/servers.cfg
 
 if [ ! -f  $CFG ]; then
     die must have $CFG

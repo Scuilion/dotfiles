@@ -12,3 +12,4 @@
 
 [core]
 	filemode = false
+	excludesfile = /home/kevino/.gitignore_global
