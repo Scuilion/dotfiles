@@ -15,8 +15,8 @@ compinit
 
 alias zcon="vim ~/.zshrc"
 alias szcon="source ~/.zshrc"
-alias vrc="vim ~/.vimrc"
-alias svrc="source ~/.vimrc"
+alias vcon="vim ~/.vimrc"
+alias svcon="source ~/.vimrc"
 alias copy="xsel --clipboard"
 alias xclip="xclip -selection c"
 

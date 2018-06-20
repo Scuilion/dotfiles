@@ -1,5 +1,8 @@
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+
 call pathogen#infect()
-call pathogen#helptags()
+"call pathogen#helptags()
+
 "Consolas
 set guifont=Consolas:h13
 ":cANSI
@@ -170,3 +173,4 @@ au BufEnter *.scala setl equalprg=java\ -jar\ ~/bin/cli-assembly-0.2.0-SNAPSHOT.
 
 "eliminate trailing white space
 autocmd BufWritePre * :%s/\s\+$//e
+

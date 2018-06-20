@@ -7,6 +7,15 @@ dir_backup=$PROJECT_DIR/dotfiles_old
 
 mkdir -p $dir_backup
 
+function link-file(){
+    mkdir -p "${2:h}"
+    rm -rf "$2"
+    ln -s "$PWD/$1" "$2"
+}
+
+link-file vim ~/.vim
+link-file vim/bundle
+
 declare -a FILES_TO_SYMLINK=(
     'git/gitconfig'
     'git/gitignore_global'
@@ -19,9 +28,6 @@ declare -a FILES_TO_SYMLINK=(
 
     'zsh/zshrc'
 )
-
-#'zsh/alias.zsh'
-#'zsh/theme.zsh'
 
 for file in ${FILES_TO_SYMLINK[@]}; do
     sourceFile="$(pwd)/$file"
