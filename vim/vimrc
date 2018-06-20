@@ -80,7 +80,7 @@ ca w wa
 ca W w
 ca q1 q!
 "force sudo save
-cmap w!! w !sudo tee % >/dev/null
+cmap w!! w !sudo tee >/dev/null %
 
 "always overwrite session
 ca mks mks!
@@ -119,6 +119,12 @@ let NERDTreeChDirMode=2
 let NERDTreeIgnore=['\.swp$']
 noremap <C-m> :NERDTreeFind<CR>
 noremap \\ :NERDTreeToggle<CR>
+
+" Auto reload vimrc
+autocmd! bufwritepost vimrc source ~/.vimrc
+
+" Golang settings
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
 " Syntastic
 let g:syntasticToggleMode = 'passive'

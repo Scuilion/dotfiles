@@ -20,6 +20,9 @@ declare -a FILES_TO_SYMLINK=(
     'zsh/zshrc'
 )
 
+#'zsh/alias.zsh'
+#'zsh/theme.zsh'
+
 for file in ${FILES_TO_SYMLINK[@]}; do
     sourceFile="$(pwd)/$file"
     targetFile="$HOME/.$(printf "%s" "$file" | sed "s/.*\/\(.*\)/\1/g")"
@@ -31,7 +34,7 @@ for file in ${FILES_TO_SYMLINK[@]}; do
     fi
 
     #link new copy
-    ln -s $sourceFile $targetFile
+    ln -sf $sourceFile $targetFile
 
 done
 
