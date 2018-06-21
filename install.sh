@@ -49,3 +49,4 @@ done
 ln -fs $SCRIPT_DIR/bin/* $HOME/bin
 
 ./sdkman-install.sh
+./helm-install.sh

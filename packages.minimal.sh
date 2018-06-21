@@ -20,3 +20,13 @@ apt-get --no-install-recommends    \
 snap install intellij-idea-ultimate --classic
 snap install go --classic
 snap install kubectl --classic
+snap install aws-cli --classic
+
+#Install docker
+snap install docker
+addgroup --system docker
+adduser kevino docker
+sudo su -c "newgrp docker" kevino
+snap disable docker
+snap enable docker
+
