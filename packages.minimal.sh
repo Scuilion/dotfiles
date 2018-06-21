@@ -6,6 +6,7 @@ apt-get --no-install-recommends    \
    pwgen                                \
    openssh-client                       \
    openssh-server                       \
+   cifs-utils                           \
    jq                                   \
    meld                                 \
    pinta                                \

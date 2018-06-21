@@ -30,3 +30,32 @@ alias gcp='git cherry-pick'
 alias gd='git diff'
 alias gp='git push'
 alias gst='git status'
+
+#GREP
+alias -g G='| grep '
+alias grep='grep --color=auto'
+
+#DIRECTORIES
+alias mkdir='mkdir -pv'
+
+#HISTORY
+alias h='history'
+alias hg='history | grep '
+
+#NETWORK
+alias ping='ping -c 3'
+alias fastping='ping -c 100 -s.2'
+alias port="sudo netstat -nlp"
+
+#TEXT
+alias copy="xsel --clipboard"
+alias xclip="xclip -selection c"
+
+#PROTECTION
+# Parenting changing perms on / #
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+
+
+

@@ -17,10 +17,7 @@ alias zcon="vim ~/.zshrc"
 alias szcon="source ~/.zshrc"
 alias vcon="vim ~/.vimrc"
 alias svcon="source ~/.vimrc"
-alias copy="xsel --clipboard"
-alias xclip="xclip -selection c"
 
-alias port="sudo netstat -nlp"
 alias desk="cd /home/kevino/.local/share/applications"
 
 alias jcli="/home/kevino/programs/wildfly-10.0.0.Final/bin/jboss-cli.sh --connect"
