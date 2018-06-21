@@ -1,6 +1,6 @@
 #!/bin/sh
 
-exec apt-get --no-install-recommends    \
+apt-get --no-install-recommends    \
                              install -y \
    curl                                 \
    jq                                   \
@@ -11,3 +11,8 @@ exec apt-get --no-install-recommends    \
    tmux                                 \
    vim-gtk                              \
    zsh
+
+#multip install doesn't work work in --clasic mode
+snap install intellij-idea-ultimate --classic
+snap install go --classic
+snap install kubectl --classic
