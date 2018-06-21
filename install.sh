@@ -48,4 +48,4 @@ done
 #for f in $(ls -d $_DIR/bin/*); do ln -s $f $HOME/bin/; done && ls -al $HOME/bin/
 ln -fs $SCRIPT_DIR/bin/* $HOME/bin
 
-. ./sdkman-install.sh
+./sdkman-install.sh

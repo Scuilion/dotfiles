@@ -3,6 +3,9 @@
 apt-get --no-install-recommends    \
                              install -y \
    curl                                 \
+   pwgen                                \
+   openssh-client                       \
+   openssh-server                       \
    jq                                   \
    meld                                 \
    pinta                                \
