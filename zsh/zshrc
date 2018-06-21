@@ -51,8 +51,8 @@ source ~/projects/dotfiles/zsh/git_prompt.zsh
 source ~/projects/dotfiles/zsh/alias.zsh
 source ~/projects/dotfiles/zsh/history.zsh
 source ~/projects/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-#source ~/projects/dotfiles/zsh/theme.zsh
+source ~/projects/dotfiles/zsh/theme.zsh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/kevino/.sdkman"
-[[ -s "/home/kevino/.sdkman/bin/sdkman-init.sh" ]] && source "/home/kevino/.sdkman/bin/sdkman-init.sh"
+[[ -s "~/.sdkman/bin/sdkman-init.sh" ]] && source "~/.sdkman/bin/sdkman-init.sh"
