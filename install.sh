@@ -14,7 +14,7 @@ function link-file(){
 }
 
 link-file vim ~/.vim
-link-file vim/bundle
+#link-file vim/bundle
 
 declare -a FILES_TO_SYMLINK=(
     'git/gitconfig'
@@ -34,7 +34,7 @@ for file in ${FILES_TO_SYMLINK[@]}; do
     targetFile="$HOME/.$(printf "%s" "$file" | sed "s/.*\/\(.*\)/\1/g")"
 
     if [ -f $targetFile ]; then
-        echo "Backing up: ${targetFile}"
+        #echo "Backing up: ${targetFile}"
         cp -L $HOME/${targetFile##*/} $dir_backup
         rm $HOME/${targetFile##*/}
     fi
@@ -47,3 +47,5 @@ done
 # Copy binaries
 #for f in $(ls -d $_DIR/bin/*); do ln -s $f $HOME/bin/; done && ls -al $HOME/bin/
 ln -fs $SCRIPT_DIR/bin/* $HOME/bin
+
+. ./sdkman-install.sh
