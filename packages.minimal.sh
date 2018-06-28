@@ -9,9 +9,11 @@ apt-get --no-install-recommends    \
    cifs-utils                           \
    jq                                   \
    meld                                 \
+   make                                 \
    pinta                                \
    xclip                                \
    rsync                                \
+   net-tools                            \
    tmux                                 \
    vim-gtk                              \
    zsh
