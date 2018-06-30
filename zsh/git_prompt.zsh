@@ -1,5 +1,3 @@
-# Adapted from code found at <https://gist.github.com/1712320>.
-
 setopt prompt_subst
 autoload -U colors && colors # Enable colors in prompt
 
