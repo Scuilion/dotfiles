@@ -1,14 +1,5 @@
-# time that oh-my-zsh is loaded.
-#ZSH_THEME="jonathan"
-#ZSH_THEME="frisk"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
 #plugins=(scala git gradle docker common-aliases zsh-autosuggestions)
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 fpath=(~/.zsh/completion $fpath)
 autoload -U compinit
 compinit
@@ -42,8 +33,6 @@ bindkey "$terminfo[kcud1]" down-line-or-beginning-search
 
 declare -a dirs_to_prepend
 
-DISABLE_AUTO_TITLE=true
-
 source ~/projects/dotfiles/zsh/git_prompt.zsh
 source ~/projects/dotfiles/zsh/alias.zsh
 source ~/projects/dotfiles/zsh/history.zsh
@@ -53,3 +42,8 @@ source ~/projects/dotfiles/zsh/theme.zsh
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/kevino/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+PATH=$PATH:~/bin
+
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
