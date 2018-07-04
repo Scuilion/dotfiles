@@ -112,9 +112,6 @@ let g:ctrlp_root_markers = ['.acignore']
 let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_by_filename = 1
 
-" Tab view
-noremap gc :tabclose<cr>
-
 " NERDTtree
 let NERDTreeBookmarksFile=expand("$HOME/.vim-NERDTreeBookmarks")
 let NERDTreeShowBookmarks=1
@@ -154,19 +151,8 @@ augroup setSyntax
     autocmd BufNewFile, BufRead *.gradle   set syntax=groovy
 augroup END
 
-" Commenting blocks of code.
-let b:comment_leader = '# '
-augroup setCommentLeader
-    autocmd!
-    autocmd FileType gradle,c,cpp,java,scala,groovy let b:comment_leader = '// '
-augroup END
-
-noremap <silent> <leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-noremap <silent> <leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
-
 au BufEnter *.scala setl formatprg=java\ -jar\ ~/bin/cli-assembly-0.2.0-SNAPSHOT.jar\ -f\ -q\ +alignParameters\ +doubleIndentClassDeclaration\ +preserveSpaceBeforeArguments\ --stdin\ --stdout
 au BufEnter *.scala setl equalprg=java\ -jar\ ~/bin/cli-assembly-0.2.0-SNAPSHOT.jar\ -f\ -q\ +alignParameters\ +doubleIndentClassDeclaration\ +preserveSpaceBeforeArguments\ --stdin\ --stdout
-
 
 "utils
 :inoremap \fp <C-R>=getcwd()<CR>
