@@ -13,7 +13,7 @@ set number             " show line numbers
 set nocompatible       " better safe than sorry
 filetype on
 filetype plugin on
-syntax enable
+syntax on
 set autoindent
 set wildmenu
 set mouse=a
@@ -27,6 +27,7 @@ set hlsearch
 set ruler
 "auto load files
 :set autoread
+
 "allways sync
 autocmd BufEnter * :syntax sync fromstart
 
@@ -108,7 +109,7 @@ ab allMethod metaClass.methods*.name.sort().unique()
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
-let g:ctrlp_root_markers = ['.acignore']
+let g:ctrlp_root_markers = ['.gitignore']
 let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_by_filename = 1
 
@@ -147,7 +148,6 @@ noremap <A-b> :exe ':silent !firefox %'<cr>
 "recognize groovy file
 augroup setSyntax
     autocmd!
-    autocmd BufNewFile, BufRead *.story   set syntax=groovy
     autocmd BufNewFile, BufRead *.gradle   set syntax=groovy
 augroup END
 

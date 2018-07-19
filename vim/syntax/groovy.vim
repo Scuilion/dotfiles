@@ -6,21 +6,16 @@
 " Special edits
 " URL:	  http://www.vim.org/scripts/script.php?script_id=945
 " Last Change:	2013 Apr 24
-
-
-
 " This is my very first vim script, I hope to have
 " done it the right way.
-" 
+"
 " I must directly or indirectly thank the author of java.vim and ruby.vim:
 " I copied from them most of the stuff :-)
 "
 " Relies on html.vim
-
 " For version 5.x: Clear all syntax items
 " For version 6.x: Quit when a syntax file was already loaded
 "
-
 " HOWTO USE IT (INSTALL):
 "
 " 1) copy the file in the (global or user's $HOME/.vim/syntax/) syntax folder
@@ -45,7 +40,6 @@
 "
 " Let me know if you like it or send me patches, so that I can improve it
 " when I have time
-
 " Quit when a syntax file was already loaded
 if !exists("main_syntax")
   if version < 600

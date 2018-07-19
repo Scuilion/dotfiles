@@ -33,6 +33,7 @@ bindkey "$terminfo[kcud1]" down-line-or-beginning-search
 
 declare -a dirs_to_prepend
 
+source ~/projects/dotfiles/zsh/clock.zsh
 source ~/projects/dotfiles/zsh/git_prompt.zsh
 source ~/projects/dotfiles/zsh/alias.zsh
 source ~/projects/dotfiles/zsh/history.zsh
@@ -44,6 +45,7 @@ export SDKMAN_DIR="/home/kevino/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 PATH=$PATH:~/bin
+PATH=$PATH:~/go/bin
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 

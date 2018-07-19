@@ -1,3 +1,9 @@
+skull_and_crossbones=$'\U2620'
+skull=$'\U1F480'
+imp=$'\U1F47F'
+ghost=$'\U1F47B'
+
 PROMPT='
-%F{blue}%/%F{reset_color} $(git_prompt_string)%F{white}[%n@%m]%F{reset_color} %F{white}[%T]
- '
+%B%F{blue}%/%F{reset_color}%b $(git_prompt_string)%F{white}[%n]%F{reset_color} %F{white}
+$(current_clock_emoji) '
+#$ghost '
