@@ -33,7 +33,7 @@ alias gst='git status'
 
 #GREP
 alias -g G='| grep '
-alias grep='grep --color=auto'
+alias grep='grep --exclude-dir={node_modules,dist,target} --color=auto'
 
 #DIRECTORIES
 alias mkdir='mkdir -pv'
