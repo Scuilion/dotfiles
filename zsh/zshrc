@@ -1,5 +1,3 @@
-#plugins=(scala git gradle docker common-aliases zsh-autosuggestions)
-
 fpath=(~/.zsh/completion $fpath)
 autoload -U compinit
 compinit
@@ -10,9 +8,6 @@ alias vcon="vim ~/.vimrc"
 alias svcon="source ~/.vimrc"
 
 alias desk="cd /home/kevino/.local/share/applications"
-
-alias jcli="/home/kevino/programs/wildfly-10.0.0.Final/bin/jboss-cli.sh --connect"
-alias jst="vim /home/kevino/programs/wildfly-10.0.0.Final/standalone/configuration/standalone.xml"
 
 if command -v tmux>/dev/null; then
   [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
@@ -34,6 +29,7 @@ bindkey "$terminfo[kcud1]" down-line-or-beginning-search
 declare -a dirs_to_prepend
 
 source ~/projects/dotfiles/zsh/clock.zsh
+source ~/projects/dotfiles/zsh/kube_ctx.zsh
 source ~/projects/dotfiles/zsh/git_prompt.zsh
 source ~/projects/dotfiles/zsh/alias.zsh
 source ~/projects/dotfiles/zsh/history.zsh
@@ -44,8 +40,13 @@ source ~/projects/dotfiles/zsh/theme.zsh
 export SDKMAN_DIR="/home/kevino/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-PATH=$PATH:~/bin
-PATH=$PATH:~/go/bin
+export PATH=$PATH:~/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$GOPATH/bin
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
+if [ $commands[kubectl] ]; then
+  source <(kubectl completion zsh)
+fi

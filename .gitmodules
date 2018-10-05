@@ -31,3 +31,12 @@
 [submodule "vim/bundle/vim-grepper"]
 	path = vim/bundle/vim-grepper
 	url = git@github.com:mhinz/vim-grepper.git
+[submodule "vim/bundle/terminus"]
+	path = vim/bundle/terminus
+	url = git@github.com:wincent/terminus.git
+[submodule "vim/bundle/quick-scope"]
+	path = vim/bundle/quick-scope
+	url = git@github.com:unblevable/quick-scope.git
+[submodule "vim/bundle/vim-fugitive"]
+	path = vim/bundle/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git
