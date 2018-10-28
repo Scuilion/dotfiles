@@ -121,11 +121,17 @@ let NERDTreeIgnore=['\.swp$']
 noremap <C-m> :NERDTreeFind<CR>
 noremap \\ :NERDTreeToggle<CR>
 
+" NERDCommenter
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign='left'
+let g:NERDCommentEmptyLines=1
+
 " Auto reload vimrc
 autocmd! bufwritepost vimrc source ~/.vimrc
 
 " Golang settings
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+let g:go_fmt_fail_silently = 1
 
 " Syntastic
 let g:syntasticToggleMode = 'passive'
@@ -159,4 +165,7 @@ au BufEnter *.scala setl equalprg=java\ -jar\ ~/bin/cli-assembly-0.2.0-SNAPSHOT.
 
 "eliminate trailing white space
 autocmd BufWritePre * :%s/\s\+$//e
+
+let g:qs_highlight_on_keys = ['f', 'F']
+let g:qs_max_chars=80
 

@@ -32,7 +32,7 @@ alias gp='git push'
 alias gst='git status'
 
 #GREP
-alias -g G='| grep '
+alias -g G='| grep -i'
 alias grep='grep --exclude-dir={node_modules,dist,target} --color=auto'
 
 #DIRECTORIES
@@ -56,6 +56,4 @@ alias xclip="xclip -selection c"
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
-
-
 
