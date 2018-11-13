@@ -31,7 +31,7 @@ set ruler
 "allways sync
 autocmd BufEnter * :syntax sync fromstart
 
-let mapleader = ","
+let localleader = ","
 inoremap jj <Esc>
 
 " set ; to : in command mode
@@ -100,6 +100,14 @@ if has("win32") || has("win16")
     au GUIEnter * simalt ~x "
 endif
 
+" Fold options
+"let g:markdown_enabled_folding=1
+"let g:markdown_folding=1
+"let foldlevel=20
+set nofoldenable
+
+
+
 " abbreviations
 " all methods
 ab allMethod metaClass.methods*.name.sort().unique()
@@ -113,7 +121,7 @@ let g:ctrlp_root_markers = ['.gitignore']
 let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_by_filename = 1
 
-" NERDTtree
+" NERDTree
 let NERDTreeBookmarksFile=expand("$HOME/.vim-NERDTreeBookmarks")
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
@@ -164,7 +172,7 @@ au BufEnter *.scala setl equalprg=java\ -jar\ ~/bin/cli-assembly-0.2.0-SNAPSHOT.
 :inoremap \fp <C-R>=getcwd()<CR>
 
 "eliminate trailing white space
-autocmd BufWritePre * :%s/\s\+$//e
+"autocmd BufWritePre * :%s/\s\+$//e
 
 let g:qs_highlight_on_keys = ['f', 'F']
 let g:qs_max_chars=80
