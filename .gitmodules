@@ -52,3 +52,6 @@
 [submodule "vim/bundle/vim-test"]
 	path = vim/bundle/vim-test
 	url = git@github.com:janko-m/vim-test.git
+[submodule "vim/bundle/vim-windowswap"]
+	path = vim/bundle/vim-windowswap
+	url = git@github.com:wesQ3/vim-windowswap.git
