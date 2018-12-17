@@ -168,6 +168,9 @@ augroup END
 au BufEnter *.scala setl formatprg=java\ -jar\ ~/bin/cli-assembly-0.2.0-SNAPSHOT.jar\ -f\ -q\ +alignParameters\ +doubleIndentClassDeclaration\ +preserveSpaceBeforeArguments\ --stdin\ --stdout
 au BufEnter *.scala setl equalprg=java\ -jar\ ~/bin/cli-assembly-0.2.0-SNAPSHOT.jar\ -f\ -q\ +alignParameters\ +doubleIndentClassDeclaration\ +preserveSpaceBeforeArguments\ --stdin\ --stdout
 
+" Set tabs for typescript
+autocmd FileType ts setlocal shiftwidth=2 tabstop=2
+
 "utils
 :inoremap \fp <C-R>=getcwd()<CR>
 
