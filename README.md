@@ -3,7 +3,7 @@
 ```
 sudo apt-get install git xclip
 
-ssh-keygen -t rsa -b 4096 -C "oneal.kevin@gmail.com"
+ssh-keygen -t rsa -b 4096 -C "oneal.kevin@gmail.com" -f ~/.ssh/github_rsa -N ""
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/github_rsa
 xclip -sel clip < ~/.ssh/github_rsa.pub
