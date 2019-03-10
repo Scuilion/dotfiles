@@ -10,7 +10,7 @@ xclip -sel clip < ~/.ssh/github_rsa.pub
 
 mkdir -p ~/projects
 cd ~/projects
-git clone git@github.com:Scuilion/dotfiles.git
+git clone --recurse-submodules git@github.com:Scuilion/dotfiles.git
 
 sudo chmod +x *.sh
 sudo ./packages.sh
