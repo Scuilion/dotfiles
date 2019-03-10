@@ -3,8 +3,8 @@
 ##export HISTFILE="$HOME/.zsh_history"
 HISTFILE="$HOME/.zsh_history"
 
-HISTSIZE=50000
-SAVEHIST=10000
+HISTSIZE=500000
+SAVEHIST=100000
 
 ## History command configuration
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.

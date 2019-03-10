@@ -57,3 +57,5 @@ alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 
+# shortcut to desktop files
+alias desk="cd /home/kevino/.local/share/applications"

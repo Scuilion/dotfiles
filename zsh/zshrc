@@ -7,12 +7,11 @@ alias szcon="source ~/.zshrc"
 alias vcon="vim ~/.vimrc"
 alias svcon="source ~/.vimrc"
 
-alias desk="cd /home/kevino/.local/share/applications"
-
 if command -v tmux>/dev/null; then
   [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
 fi
 
+# enable Vi mode
 bindkey -v
 bindkey '^Xh' _complete_help
 bindkey jj vi-cmd-mode
@@ -24,8 +23,6 @@ zle -N down-line-or-beginning-search
 bindkey "$terminfo[kcuu1]" up-line-or-beginning-search
 bindkey "$terminfo[kcud1]" down-line-or-beginning-search
 
-#source $HOME/.bash_aliases
-
 declare -a dirs_to_prepend
 
 source ~/projects/dotfiles/zsh/clock.zsh
@@ -36,7 +33,7 @@ source ~/projects/dotfiles/zsh/history.zsh
 source ~/projects/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/projects/dotfiles/zsh/theme.zsh
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+#SDKMAN
 export SDKMAN_DIR="/home/kevino/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
