@@ -1,7 +1,8 @@
 
-##[ -z "$HISTFILE" ] &&
-##export HISTFILE="$HOME/.zsh_history"
 HISTFILE="$HOME/.zsh_history"
+if [ -f "$HOME/Dropbox/config/.zsh_history" ]; then
+    HISTFILE="$HOME/Dropbox/config/.zsh_history"
+fi
 
 HISTSIZE=500000
 SAVEHIST=100000

@@ -1,6 +1,6 @@
 #DIRECTORIES
 
-## Changing/making/removing directory
+# Changing/making/removing directory
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
@@ -9,11 +9,17 @@ alias md='mkdir -p'
 alias rd=rmdir
 alias d='dirs -v | head -10'
 
-## List directory contents
+# List directory contents
 alias lsa='ls -lah'
 alias l='ls -lah'
 alias ll='ls -lh'
 alias la='ls -lAh'
+
+# Quick edit config
+alias zcon="vim ~/.zshrc"
+alias szcon="source ~/.zshrc"
+alias vcon="vim ~/.vimrc"
+alias svcon="source ~/.vimrc"
 
 #GIT
 alias gcf='git config --list'

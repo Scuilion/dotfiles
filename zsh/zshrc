@@ -2,11 +2,6 @@ fpath=(~/.zsh/completion $fpath)
 autoload -U compinit
 compinit
 
-alias zcon="vim ~/.zshrc"
-alias szcon="source ~/.zshrc"
-alias vcon="vim ~/.vimrc"
-alias svcon="source ~/.vimrc"
-
 if command -v tmux>/dev/null; then
   [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
 fi
