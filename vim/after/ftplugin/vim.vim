@@ -1,1 +1,2 @@
+" settings for .vim files
 setlocal sw=2 sts=2 et

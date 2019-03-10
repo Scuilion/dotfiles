@@ -152,6 +152,10 @@ let g:syntastic_java_checkstyle_conf_file = 'google_checks.xml'
 
 let g:syntastic_scalac_checkers=['scalac']
 
+" Grepper
+nmap gs  <plug>(GrepperOperator)
+xmap gs  <plug>(GrepperOperator)
+
 "open in browser
 noremap <A-b> :exe ':silent !firefox %'<cr>
 
