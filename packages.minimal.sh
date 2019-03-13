@@ -12,6 +12,8 @@ apt-get --no-install-recommends    \
    make                                 \
    pinta                                \
    xclip                                \
+   hugo                                 \
+   nfs-common                           \
    rsync                                \
    net-tools                            \
    tmux                                 \
@@ -23,7 +25,6 @@ snap install intellij-idea-ultimate --classic
 snap install go --classic
 snap install kubectl --classic
 snap install minikube --classic
-snap install aws-cli --classic
 
 #Install docker
 snap install docker
