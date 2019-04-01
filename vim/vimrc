@@ -157,9 +157,6 @@ nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
 nnoremap <leader>* :Grepper -tool ag -cword -noprompt -highlight<cr>
 
-" Ale
-let g:ale_echo_cursor = 0
-
 "open in browser
 noremap <A-b> :exe ':silent !firefox %'<cr>
 

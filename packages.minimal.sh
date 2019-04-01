@@ -12,6 +12,7 @@ apt-get --no-install-recommends    \
    make                                 \
    pinta                                \
    xclip                                \
+   traceroute                           \
    hugo                                 \
    nfs-common                           \
    rsync                                \

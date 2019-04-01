@@ -31,9 +31,6 @@
 [submodule "vim/bundle/vim-hugo-helper"]
 	path = vim/bundle/vim-hugo-helper
 	url = git@github.com:robertbasic/vim-hugo-helper.git
-[submodule "vim/bundle/vim-markdown"]
-	path = vim/bundle/vim-markdown
-	url = git@github.com:tpope/vim-markdown.git
 [submodule "vim/bundle/vim-gitgutter"]
 	path = vim/bundle/vim-gitgutter
 	url = git@github.com:airblade/vim-gitgutter.git
@@ -55,3 +52,6 @@
 [submodule "vim/bundle/typescript-vim"]
 	path = vim/bundle/typescript-vim
 	url = git@github.com:leafgarland/typescript-vim.git
+[submodule "vim/bundle/vader.vim"]
+	path = vim/bundle/vader.vim
+	url = git@github.com:junegunn/vader.vim.git
