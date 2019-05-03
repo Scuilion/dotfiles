@@ -2,9 +2,8 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 
 call pathogen#infect()
 
-"Consolas
+" Consolas
 set guifont=Consolas:h13
-":cANSI
 set guioptions=
 
 colorscheme wombat
@@ -27,10 +26,10 @@ set ruler
 "auto load files
 :set autoread
 
-"allways sync
+"always sync
 autocmd BufEnter * :syntax sync fromstart
 
-let localleader = ","
+let localleader = ','
 inoremap jj <Esc>
 
 " set ; to : in command mode
@@ -72,7 +71,7 @@ noremap YY "+y<CR>
 noremap P "+gP<CR>
 
 "quick font change
-if  has("gui_running") && (has("win32") || has("win64"))
+if  has('gui_running') && (has('win32') || has('win64'))
     nnoremap <C-Up> :silent let &guifont=substitute(&guifont, ':h\zs\d\+', '\=submatch(0)+1', '')<CR>
     nnoremap <C-Down> :silent let &guifont=substitute(&guifont, ':h\zs\d\+', '\=submatch(0)-1', '')<CR>
 endif
@@ -90,22 +89,15 @@ ca mks mks!
 "replace back slashes with forward
 ca fs s/\\/\//g
 ca fsg %s/\\/\//g
-"reaplace forward slashes with back
+"replace forward slashes with back
 ca rfs s/\//\\/g
 ca rfsg %s/\//\\/g
 
-if has("win32") || has("win16")
-    "open window maximized. 'x' on an English Windows version.
-    au GUIEnter * simalt ~x "
-endif
-
 " Fold options
-"let g:markdown_enabled_folding=1
-"let g:markdown_folding=1
-"let foldlevel=20
 set nofoldenable
 
-
+" markdown drawer
+nnoremap <Leader>md :MarkDrawer<cr>
 
 " abbreviations
 " all methods
@@ -119,9 +111,13 @@ set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
 let g:ctrlp_root_markers = ['.gitignore']
 let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_by_filename = 1
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](node_modules|target|dist)|(\.(git|hg|svn))$',
+  \ 'file': '\v\.(exe|so|dll|class)$',
+  \ }
 
 " NERDTree
-let NERDTreeBookmarksFile=expand("$HOME/.vim-NERDTreeBookmarks")
+let NERDTreeBookmarksFile=expand('$HOME/.vim-NERDTreeBookmarks')
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
 let NERDTreeIgnore=['\.swp$']
@@ -152,6 +148,9 @@ let g:syntastic_java_checkstyle_conf_file = 'google_checks.xml'
 
 let g:syntastic_scalac_checkers=['scalac']
 
+" VCR
+let g:vrc_response_default_content_type='application/json'
+
 " Grepper
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
@@ -160,7 +159,7 @@ nnoremap <leader>* :Grepper -tool ag -cword -noprompt -highlight<cr>
 "open in browser
 noremap <A-b> :exe ':silent !firefox %'<cr>
 
-"set whitespace characters
+"set white space characters
 :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 "recognize groovy file
@@ -175,12 +174,31 @@ au BufEnter *.scala setl equalprg=java\ -jar\ ~/bin/cli-assembly-0.2.0-SNAPSHOT.
 " Set tabs for typescript
 autocmd FileType ts setlocal shiftwidth=2 tabstop=2
 
-"utils
-:inoremap \fp <C-R>=getcwd()<CR>
-
-"eliminate trailing white space
-"autocmd BufWritePre * :%s/\s\+$//e
-
 let g:qs_highlight_on_keys = ['f', 'F']
 let g:qs_max_chars=80
+
+function! s:exercism_tests()
+  if expand('%:e') == 'vim'
+    let testfile = printf('%s/%s.vader', expand('%:p:h'),
+          \ tr(expand('%:p:h:t'), '-', '_'))
+    if !filereadable(testfile)
+      echoerr 'File does not exist: '. testfile
+      return
+    endif
+    source %
+    execute 'Vader' testfile
+  else
+    let sourcefile = printf('%s/%s.vim', expand('%:p:h'),
+          \ tr(expand('%:p:h:t'), '-', '_'))
+    if !filereadable(sourcefile)
+      echoerr 'File does not exist: '. sourcefile
+      return
+    endif
+    execute 'source' sourcefile
+    Vader
+  endif
+endfunction
+
+autocmd BufRead *.{vader,vim}
+      \ command! -buffer Test call s:exercism_tests()
 
