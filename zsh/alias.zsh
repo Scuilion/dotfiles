@@ -5,7 +5,7 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
 
-alias md='mkdir -p'
+alias mkdir='mkdir -pv'
 alias rd=rmdir
 alias d='dirs -v | head -10'
 
@@ -39,10 +39,7 @@ alias gst='git status'
 
 #GREP
 alias -g G='| grep -i'
-alias grep='grep --exclude-dir={node_modules,dist,target,vendor} --color=auto'
-
-#DIRECTORIES
-alias mkdir='mkdir -pv'
+alias grep='grep --exclude-dir={node_modules,dist,target,vendor,.git} --color=auto'
 
 #HISTORY
 alias h='history'

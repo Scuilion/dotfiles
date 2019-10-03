@@ -49,11 +49,6 @@ iunmap ;
 noremap j gj
 noremap k gk
 
-" clear screen
-"nmap <silent> e :nohlsearch<CR>
-nnoremap <silent> ./ :nohlsearch<CR>
-"nnoremap 
-
 " Spaces instead of tab character
 set expandtab
 set smarttab
@@ -85,8 +80,13 @@ noremap P "+gP<CR>
 ca w wa
 ca W w
 ca q1 q!
+
 "force sudo save
 cmap w!! w !sudo tee >/dev/null %
+
+"Persistent Undo
+set undofile
+set undodir=~/.vim/undodir
 
 " Fold options
 set nofoldenable
@@ -128,6 +128,7 @@ let g:NERDCommentEmptyLines=1
 augroup golang
   autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 augroup END
+let g:go_list_height=0
 
 " Syntastic
 let g:syntasticToggleMode = 'passive'
