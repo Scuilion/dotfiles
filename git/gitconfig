@@ -15,3 +15,5 @@
 	excludesfile = /home/kevino/.gitignore_global
 [alias]
 	plog = log --graph --pretty=format:'%h -%d %s %n' --abbrev-commit --date=relative --branches
+[diff]
+	noprefix = true
