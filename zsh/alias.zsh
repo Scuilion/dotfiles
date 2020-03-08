@@ -33,7 +33,7 @@ alias gcd='git checkout develop'
 alias gco='git checkout'
 
 alias gcp='git cherry-pick'
-alias gd='git diff .'
+alias gd='git diff -w .'
 alias gp='git push'
 alias gst='git status'
 
