@@ -61,3 +61,6 @@
 [submodule "zsh/antigen"]
 	path = zsh/antigen
 	url = https://github.com/zsh-users/antigen.git
+[submodule "zsh/z.lua"]
+	path = zsh/z.lua
+	url = git@github.com:skywind3000/z.lua.git
