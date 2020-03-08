@@ -42,3 +42,4 @@ ca rfsg %s/\//\\/g
 
 "set whitespace characters
 :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+set ideajoin
