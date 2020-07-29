@@ -9,5 +9,3 @@ echo "remove $sub_path"
 git submodule deinit $sub_path
 git rm $sub_path
 rm -rf .git/modules/$sub_path
-git commit -m "Removed submodule $sub_path"
-

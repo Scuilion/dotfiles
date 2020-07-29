@@ -49,12 +49,6 @@
 [submodule "vim/bundle/vader.vim"]
 	path = vim/bundle/vader.vim
 	url = git@github.com:junegunn/vader.vim.git
-[submodule "tmux/plugins/tmux-resurrect"]
-	path = tmux/plugins/tmux-resurrect
-	url = git@github.com:tmux-plugins/tmux-resurrect.git
-[submodule "tmux/plugins/tmux-continuum"]
-	path = tmux/plugins/tmux-continuum
-	url = git@github.com:tmux-plugins/tmux-continuum.git
 [submodule "zsh/antigen"]
 	path = zsh/antigen
 	url = https://github.com/zsh-users/antigen.git
