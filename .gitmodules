@@ -46,9 +46,6 @@
 [submodule "vim/bundle/vim-pathogen"]
 	path = vim/bundle/vim-pathogen
 	url = git@github.com:tpope/vim-pathogen.git
-[submodule "vim/bundle/typescript-vim"]
-	path = vim/bundle/typescript-vim
-	url = git@github.com:leafgarland/typescript-vim.git
 [submodule "vim/bundle/vader.vim"]
 	path = vim/bundle/vader.vim
 	url = git@github.com:junegunn/vader.vim.git
