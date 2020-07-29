@@ -54,5 +54,3 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /home/kevino/bin/vault vault
-
-eval "$(lua ~/projects/dotfiles/zsh/z.lua/z.lua --init zsh)"

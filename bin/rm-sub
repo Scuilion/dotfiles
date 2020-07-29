@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [[ ! $1 ]]; then
+    echo "failure: provide input"
+    exit 1
+fi
+sub_path=$1
+echo "remove $sub_path"
+git submodule deinit $sub_path
+git rm $sub_path
+rm -rf .git/modules/$sub_path
+git commit -m "Removed submodule $sub_path"
+
