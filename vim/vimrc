@@ -160,3 +160,5 @@ augroup END
 
 let g:qs_highlight_on_keys = ['f', 'F']
 let g:qs_max_chars=80
+
+let g:fubitive_domain_pattern = 'stash\.masergy\.com'
