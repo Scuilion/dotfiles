@@ -54,5 +54,5 @@
 	url = https://github.com/zsh-users/antigen.git
 [submodule "vim/bundle/vim-fubitive"]
 	path = vim/bundle/vim-fubitive
-	url = git@github.com:kmARC/vim-fubitive.git
+	url = git@github.com:tommcdo/vim-fubitive.git
 	branch = master
