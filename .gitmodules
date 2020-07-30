@@ -56,3 +56,7 @@
 	path = vim/bundle/vim-fubitive
 	url = git@github.com:tommcdo/vim-fubitive.git
 	branch = master
+[submodule "vim/bundle/markdown-drawer"]
+	path = vim/bundle/markdown-drawer
+	url = git@github.com:Scuilion/markdown-drawer.git
+	branch = master
