@@ -1,7 +1,6 @@
 [user]
-	name = Kevin ONeal
-	email = oneal.kevin@gmail.com
-
+	name = Kevin O'Neal
+	email = kevin.oneal@masergy.com
 [color]
         diff = auto
         status = auto
@@ -9,7 +8,6 @@
         interactive = auto
         ui = true
         pager = true
-
 [core]
 	filemode = false
 	excludesfile = /home/kevino/.gitignore_global
@@ -17,3 +15,5 @@
 	plog = log --graph --pretty=format:'%h -%d %s %n' --abbrev-commit --date=relative --branches
 [diff]
 	noprefix = true
+[init]
+	templatedir = /home/kevino/projects/dotfiles/git/templates
