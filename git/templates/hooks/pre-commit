@@ -11,6 +11,4 @@ elif [[ $remote =~ "github.com" ]] && [[ ! $email =~ "github.com" ]]; then
     echo "should be set to github"
     git config --unset-all user.email
     git config --add user.email oneal.kevin@gmail.com
-else 
-  echo "this is fine"
 fi
