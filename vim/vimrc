@@ -34,6 +34,10 @@ augroup testgroup
   autocmd BufEnter * :syntax sync fromstart
 augroup END
 
+augroup makefile
+  autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
+augroup END
+
 let localleader = ','
 inoremap jj <Esc>
 
