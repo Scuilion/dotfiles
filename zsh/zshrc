@@ -40,7 +40,6 @@ bindkey "$terminfo[kcud1]" down-line-or-beginning-search
 declare -a dirs_to_prepend
 
 source ~/projects/dotfiles/zsh/clock.zsh
-source ~/projects/dotfiles/zsh/kube_ctx.zsh
 source ~/projects/dotfiles/zsh/git_prompt.zsh
 source ~/projects/dotfiles/zsh/alias.zsh
 source ~/projects/dotfiles/zsh/history.zsh
@@ -54,17 +53,21 @@ export SDKMAN_DIR="/home/kevino/.sdkman"
 export PATH=$PATH:~/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:/usr/local/kubebuilder/bin
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/.local/bin
 
+
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
+#k
 if [ $commands[kubectl] ]; then
     source <(kubectl completion zsh)
     alias k=kubectl
     complete -o default -F __start_kubectl k
+    export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+    source ~/projects/dotfiles/zsh/kube_ctx.zsh
 fi
+
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm

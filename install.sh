@@ -48,5 +48,5 @@ ln -s $SCRIPT_DIR/bin/* ~/bin/
 
 ./gsettings.sh
 ./sdkman-install.sh
-./helm-install.sh
+#./helm-install.sh
 
