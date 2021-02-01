@@ -3,10 +3,6 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 
 call pathogen#infect()
 
-" Consolas
-set guifont=Consolas:h13
-set guioptions=
-
 colorscheme wombat
 " show line numbers
 set number             
@@ -49,7 +45,7 @@ noremap! ; :
 iunmap :
 iunmap ;
 
-" move to the next row as opposed to the next line
+" move to the next row as opposed to the next line (good for wrapped lines)
 noremap j gj
 noremap k gk
 
@@ -98,11 +94,6 @@ set nofoldenable
 " markdown drawer
 nnoremap <Leader>md :MarkDrawer<cr>
 
-" abbreviations
-" all methods
-ab allMethod metaClass.methods*.name.sort().unique()
-:imap sout<Tab> System.out.println();<Esc>F)i
-
 "for CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -131,23 +122,8 @@ let g:NERDCommentEmptyLines=1
 " Golang settings
 augroup golang
   autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+  let g:go_list_height=0
 augroup END
-let g:go_list_height=0
-
-" Syntastic
-let g:syntasticToggleMode = 'passive'
-let g:syntastic_ignore_files = ['\m\.sbt$']
-
-"let g:syntastic_java_checkers=['javac', 'checkstyle']
-let g:syntastic_java_javac_config_file_enabled = 1
-
-let g:syntastic_java_checkstyle_classpath = 'checkstyle-6.10.1.jar'
-let g:syntastic_java_checkstyle_conf_file = 'google_checks.xml'
-
-let g:syntastic_scalac_checkers=['scalac']
-
-" VCR
-let g:vrc_response_default_content_type='application/json'
 
 " Grepper
 nmap gs <plug>(GrepperOperator)
@@ -166,3 +142,13 @@ let g:qs_highlight_on_keys = ['f', 'F']
 let g:qs_max_chars=80
 
 let g:fubitive_domain_pattern = 'stash\.masergy\.com'
+
+"cursor SI(start insert), EI(end insert)
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+set termguicolors
+if len($TMUX) > 0
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
