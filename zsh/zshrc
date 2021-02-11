@@ -17,12 +17,14 @@ autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
+bindkey $terminfo[kcuu1] up-line-or-beginning-search
+bindkey $terminfo[kcud1] down-line-or-beginning-search
 
 #terminfo find key base on capability name eg kcud1 => "^[[B"
-#bindkey $terminfo[kcuu1] history-beginning-search-backward
-#bindkey $terminfo[kcud1] history-beginning-search-forward
-bindkey "^[[A" history-beginning-search-backward
-bindkey "^[[B" history-beginning-search-forward
+bindkey $terminfo[kcuu1] history-beginning-search-backward
+bindkey $terminfo[kcud1] history-beginning-search-forward
+#bindkey "^[[A" history-beginning-search-backward
+#bindkey "^[[B" history-beginning-search-forward
 
 declare -a dirs_to_prepend
 
@@ -44,6 +46,11 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/.local/bin
 
+setopt no_aliases
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
+setopt aliases
+
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 #k
@@ -57,3 +64,4 @@ fi
 
 #allow zsh to understand bash completions
 autoload -U +X bashcompinit && bashcompinit
+
