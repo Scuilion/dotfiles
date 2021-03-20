@@ -4,4 +4,5 @@ deps.out
 mvn.out
 npm.out
 macro.vim
+.stop
 
