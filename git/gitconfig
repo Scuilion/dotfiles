@@ -11,9 +11,12 @@
 [core]
 	filemode = false
 	excludesfile = /home/kevino/.gitignore_global
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
 	plog = log --graph --pretty=format:'%h -%d %s %n' --abbrev-commit --date=relative --branches
 [diff]
 	noprefix = true
 [init]
 	templatedir = /home/kevino/projects/dotfiles/git/templates
+[interactive]
+	diffFilter = diff-so-fancy --patch

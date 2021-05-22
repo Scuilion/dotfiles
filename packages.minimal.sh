@@ -1,4 +1,6 @@
 #!/bin/sh
+add-apt-repository ppa:aos1/diff-so-fancy
+sudo apt-get update
 
 apt-get --no-install-recommends    \
                              install -y \
@@ -22,16 +24,9 @@ apt-get --no-install-recommends    \
    openvpn                              \
    network-manager-openvpn              \
    network-manager-openvpn-gnome        \
+   giff-so-fancy                        \
    zsh
 
 #multip install doesn't work work in --clasic mode
 snap install intellij-idea-ultimate --classic
-
-#Install docker
-snap install docker
-addgroup --system docker
-adduser kevino docker
-sudo su -c "newgrp docker" kevino
-snap disable docker
-snap enable docker
 
