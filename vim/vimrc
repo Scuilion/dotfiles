@@ -126,13 +126,12 @@ let g:NERDCommentEmptyLines=1
 augroup golang
   autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
   let g:go_list_height=0
-  let g:go_fmt_autosave = 1
-  let g:go_fmt_command = "goimports"
-  let g:go_list_type = "quickfix"
-  let g:go_highlight_build_constraints = 1
-  let g:go_highlight_generate_tags = 1
-  "let g:go_auto_sameids = 1 enable once you figure out the bug
-  let g:go_build_tags = "integration"
+  let g:go_fmt_autosave=1
+  let g:go_fmt_command="goimports"
+  let g:go_list_type="quickfix"
+  let g:go_highlight_build_constraints=1
+  let g:go_highlight_generate_tags=1
+  let g:go_build_tags="integration"
   "save file when :make(->:GoBuild) is called 
   set autowrite
 augroup END
