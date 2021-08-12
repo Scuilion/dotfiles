@@ -1,0 +1,7 @@
+:cnext or (ctrl-n)
+:cprevious (ctrl-m)
+:copen :ccl
+:.cc <- goto error under cursor
+
+<leader>* -> \* " greper
+
