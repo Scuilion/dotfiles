@@ -1,6 +1,4 @@
 #!/bin/sh
-add-apt-repository ppa:aos1/diff-so-fancy
-sudo apt-get update
 
 apt-get --no-install-recommends    \
                              install -y \
@@ -24,9 +22,7 @@ apt-get --no-install-recommends    \
    openvpn                              \
    network-manager-openvpn              \
    network-manager-openvpn-gnome        \
-   giff-so-fancy                        \
+   network-manager-fortisslvpn-gnome    \
+   git-lfs                              \
    zsh
-
-#multip install doesn't work work in --clasic mode
-snap install intellij-idea-ultimate --classic
 

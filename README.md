@@ -12,9 +12,13 @@ mkdir -p ~/projects
 cd ~/projects
 git clone --recurse-submodules git@github.com:Scuilion/dotfiles.git
 
+cd dotfiles
 sudo chmod +x *.sh
 sudo ./packages.sh
 ./install.sh
+
+chsh -s $(which zsh)
+# log out and back in
 ```
 
 
