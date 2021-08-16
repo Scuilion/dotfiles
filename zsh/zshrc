@@ -55,15 +55,14 @@ setopt aliases
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-#k
+#allow zsh to understand bash completions
+autoload -U +X bashcompinit && bashcompinit
+
 if [ $commands[kubectl] ]; then
     source <(kubectl completion zsh)
     alias k=kubectl
-    complete -o default -F __start_kubectl k
+    complete -F __start_kubectl k
     export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
     source ~/projects/dotfiles/zsh/kube_ctx.zsh
 fi
-
-#allow zsh to understand bash completions
-autoload -U +X bashcompinit && bashcompinit
 
