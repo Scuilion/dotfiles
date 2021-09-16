@@ -5,3 +5,8 @@
 
 <leader>* -> \* " greper
 
+ctrl b : then enter move-window -r
+gU<motion>
+
+spelling
+z=

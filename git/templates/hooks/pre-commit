@@ -1,5 +1,4 @@
 #!/bin/bash
-
 remote=$(git config --get remote.origin.url)
 email=$(git config --get user.email)
 
@@ -7,7 +6,7 @@ if [[ $remote =~ "masergy.com" ]] && [[ ! $email =~ "masergy.com" ]]; then
     echo "should be set to masergy"
     git config --unset-all user.email
     git config --add user.email kevin.oneal@masergy.com
-elif [[ $remote =~ "github.com" ]] && [[ ! $email =~ "github.com" ]]; then
+elif [[ $remote =~ "github.com" ]] && [[ ! $email =~ "gmail.com" ]]; then
     echo "should be set to github"
     git config --unset-all user.email
     git config --add user.email oneal.kevin@gmail.com
