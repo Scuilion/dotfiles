@@ -1,6 +1,6 @@
 [user]
 	name = Kevin O'Neal
-	email = kevin.oneal@masergy.com
+	email = oneal.kevin@gmail.com
 [color]
         diff = auto
         status = auto
@@ -17,8 +17,6 @@
 	plog = log --graph --pretty=format:'%h -%d %s %n' --abbrev-commit --date=relative --branches
 [diff]
 	noprefix = true
-[init]
-	templatedir = /home/kevino/projects/dotfiles/git/templates
 [interactive]
 	diffFilter = diff-so-fancy --patch
 [filter "lfs"]
@@ -28,3 +26,5 @@
 	smudge = git-lfs smudge -- %f
 [pull]
 	ff = only
+[includeIf "gitdir:~/work/"]
+    path = ~/work/corporate-dotfiles/.gitconfig

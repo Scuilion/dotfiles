@@ -64,3 +64,6 @@
 	path = vim/bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
 	branch = master
+[submodule "vim/bundle/vim-xml-runtime"]
+	path = vim/bundle/vim-xml-runtime
+	url = git@github.com:chrisbra/vim-xml-runtime
