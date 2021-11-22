@@ -24,6 +24,7 @@ declare -a FILES_TO_SYMLINK=(
     'tmux/tmux.conf'
 
     'vim/vimrc'
+    'vim/vrapperrc'
 
     'zsh/zshrc'
 )
