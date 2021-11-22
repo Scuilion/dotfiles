@@ -67,3 +67,7 @@
 [submodule "vim/bundle/vim-xml-runtime"]
 	path = vim/bundle/vim-xml-runtime
 	url = git@github.com:chrisbra/vim-xml-runtime
+[submodule "vim/bundle/vimwiki"]
+	path = vim/bundle/vimwiki
+	url = https://github.com/vimwiki/vimwiki.git
+	branch = master

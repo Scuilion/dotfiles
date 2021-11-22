@@ -122,6 +122,9 @@ noremap \\ :NERDTreeFind<CR>
 let g:NERDDefaultAlign='left'
 let g:NERDCommentEmptyLines=1
 
+" vimwiki
+let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+
 " Golang settings
 augroup golang
   autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
