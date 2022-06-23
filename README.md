@@ -3,10 +3,10 @@
 ```
 sudo apt-get install git xclip
 
-ssh-keygen -t rsa -b 4096 -C "oneal.kevin@gmail.com" -f ~/.ssh/github_rsa -N ""
+ssh-keygen -o -a 100 -t ed25519 -C "oneal.kevin@gmail.com" -f ~/.ssh/github_ed25519
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/github_rsa
-xclip -sel clip < ~/.ssh/github_rsa.pub
+xclip -sel clip < ~/.ssh/github_ed25519.pub
 
 mkdir -p ~/projects
 cd ~/projects
