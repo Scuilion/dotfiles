@@ -25,9 +25,6 @@
 [submodule "vim/bundle/quick-scope"]
 	path = vim/bundle/quick-scope
 	url = git@github.com:unblevable/quick-scope.git
-[submodule "vim/bundle/vim-hugo-helper"]
-	path = vim/bundle/vim-hugo-helper
-	url = git@github.com:robertbasic/vim-hugo-helper.git
 [submodule "vim/bundle/vim-gitgutter"]
 	path = vim/bundle/vim-gitgutter
 	url = git@github.com:airblade/vim-gitgutter.git
