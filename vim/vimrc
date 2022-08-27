@@ -1,6 +1,9 @@
 scriptencoding utf-8
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 
+let g:ale_completion_enabled = 1
+set omnifunc=ale#completion#OmniFunc
+
 call pathogen#infect()
 
 colorscheme wombat
@@ -143,6 +146,11 @@ augroup END
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
 nnoremap <leader>* :Grepper -tool ag -cword -noprompt -highlight<cr>
+
+" Airline
+" Just show the filename (no path) in the tab
+let g:airline_section_c = '%t'
+
 
 "set white space characters
 :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<

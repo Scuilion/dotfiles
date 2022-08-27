@@ -1,0 +1,10 @@
+#!/bin/bash
+
+[ -z "$1" ] && { echo "need pod name"; exit 1;}
+
+[ -z "$2" ] && { echo "need line count"; exit 1;}
+
+KEY=${3:-'stack_trace'}
+[ -z "$2" ] && { echo "need line count"; exit 1;}
+
+kubectl logs --tail $2 $1 | jq ".$KEY" | sed -e $'s/\\\\n/\\n/g' | sed -e $'s/\\\\t/\\t/g'
