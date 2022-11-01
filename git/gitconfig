@@ -28,3 +28,5 @@
 	ff = only
 [includeIf "gitdir:~/work/"]
     path = ~/work/corporate-dotfiles/.gitconfig
+[includeIf "gitdir:~/comcast/"]
+    path = ~/comcast/corporate-dotfile/.gitconfig

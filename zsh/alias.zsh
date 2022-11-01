@@ -41,6 +41,8 @@ alias gst='git status'
 alias -g G='| grep -i'
 alias grep='grep --exclude-dir={node_modules,dist,target,build,vendor,.git} --color=auto'
 
+alias fp='ps aux | grep'
+
 #HISTORY
 alias h='history'
 alias hg='history | grep '

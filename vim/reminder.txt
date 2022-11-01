@@ -10,3 +10,5 @@ gU<motion>
 
 spelling
 z=
+
+gU<motion>
