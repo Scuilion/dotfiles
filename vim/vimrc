@@ -28,6 +28,10 @@ set ruler
 "auto load files
 :set autoread
 
+" configure spell
+hi clear SpellBad
+hi SpellBad cterm=underline ctermfg=red
+
 " always sync
 augroup testgroup
   autocmd BufEnter * :syntax sync fromstart
