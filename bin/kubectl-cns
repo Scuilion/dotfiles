@@ -6,23 +6,20 @@ function self_fail {
     exit 1
 }
 
-function check_success {
-    if [[ $? -ne 0 ]]; then
-        exit $?
-    fi
+function k_fail {
+  [[ $1 -ne 0 ]] && exit $1
 }
 
-if [[ (-n "$2" || -z "$1") ]]; then
-    self_fail
-fi
+# Check that only one argument was provided
+[[ $# -ne 1 ]] && self_fail
 
-arg=$1
-parts=(${(@s:/:)arg})
-if [[ ${#parts[@]} -ne 2 ]]; then
-    self_fail
-fi
+# Accept the argument
+input=$1
 
-kubectl ctx "${parts[1]}"
-check_success
-kubectl ns "${parts[2]}"
-check_success
+# Split the argument into context and namespace variables
+context=${input%%/*}
+namespace=${input#*/}
+[[ -z $context || -z $namespace ]] && self_fail
+
+kubectl config use-context $context || k_fail $?
+kubectl config set-context --current --namespace=$namespace || k_fail $?
