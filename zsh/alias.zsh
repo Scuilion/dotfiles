@@ -39,7 +39,7 @@ alias gst='git status'
 
 #GREP
 alias -g G='| grep -i'
-alias grep='grep --exclude-dir={node_modules,dist,target,build,vendor,.git} --color=auto'
+alias grep='grep --exclude-dir={node_modules,dist,target,build,vendor,.git,.angular} --color=auto'
 
 alias fp='ps aux | grep'
 
@@ -64,3 +64,6 @@ alias chgrp='chgrp --preserve-root'
 
 # shortcut to desktop files
 alias desk="cd /home/kevino/.local/share/applications"
+
+alias bat="batcat"
+

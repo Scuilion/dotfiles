@@ -24,5 +24,6 @@ apt-get --no-install-recommends    \
    network-manager-openvpn-gnome        \
    network-manager-fortisslvpn-gnome    \
    git-lfs                              \
+   bat                                  \
    zsh
 
