@@ -23,10 +23,11 @@ set ignorecase
 set smartcase
 
 set incsearch
-set hlsearch
 set ruler
-"auto load files
+" auto load files
 :set autoread
+" show count of search
+set shortmess-=S
 
 " configure spell
 hi clear SpellBad
