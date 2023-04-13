@@ -1,0 +1,28 @@
+#!/usr/bin/env zsh
+
+function self_fail {
+    echo "Error: Specify context and namespace"
+    echo "ex: k cns cluster1/namespace2"
+    exit 1
+}
+
+function check_success {
+    if [[ $? -ne 0 ]]; then
+        exit $?
+    fi
+}
+
+if [[ (-n "$2" || -z "$1") ]]; then
+    self_fail
+fi
+
+arg=$1
+parts=(${(@s:/:)arg})
+if [[ ${#parts[@]} -ne 2 ]]; then
+    self_fail
+fi
+
+kubectl ctx "${parts[1]}"
+check_success
+kubectl ns "${parts[2]}"
+check_success
