@@ -1,0 +1,67 @@
+#!/bin/zsh
+
+decode_urlsafe_base64() {
+    local encoded="$1"
+
+    # Replace URL-safe characters with regular Base64 characters
+    encoded=${encoded//-/+}
+    encoded=${encoded//_//}
+
+    # Pad the string with = characters to make its length a multiple of 4
+    remainder=$(( ${#encoded} % 4 ))
+    if [[ $remainder -eq 2 ]]; then
+        encoded="$encoded=="
+    elif [[ $remainder -eq 3 ]]; then
+        encoded="$encoded="
+    fi
+
+    # Decode the string using the base64 command
+    local decoded=$(echo $encoded | base64 -d)
+
+    echo $decoded
+}
+
+remove_auth_header_prefix() {
+    local header="$1"
+
+    # Remove the "Authorization: Bearer " prefix if it exists
+    if [[ "$header" =~ [aA]uthorization:\ [bB]earer\  ]]; then
+        header="${header//[aA]uthorization:\ [bB]earer\ /}"
+    fi
+
+    # Remove the "Bearer " prefix if it exists
+    if [[ "$header" =~ [bB]earer\  ]]; then
+        header="${header//[bB]earer\ /}"
+    fi
+
+    echo $header
+}
+
+# Check if input was piped to this program
+if [[ -t 0 ]]; then
+    echo "Error: no input piped to this program" >&2
+    exit 1
+fi
+
+# Read JWT token from standard input
+read -r raw
+
+if [[ -z "$raw" ]]; then
+    echo "input is empty" >&2
+    exit 1
+fi
+
+jwt_token=$(remove_auth_header_prefix "$raw")
+
+# Parse JWT token and extract first two parts
+jwt_header=$(echo $jwt_token | cut -d "." -f1)
+jwt_payload=$(echo $jwt_token | cut -d "." -f2)
+
+# Decode the first two parts using base64 decoding
+decoded_header=$(decode_urlsafe_base64 $jwt_header) 
+decoded_payload=$(decode_urlsafe_base64 $jwt_payload)
+
+# Print the decoded values
+echo $decoded_header
+echo $decoded_payload
+
