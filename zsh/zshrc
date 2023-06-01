@@ -36,11 +36,10 @@ source ~/projects/dotfiles/zsh/history.zsh
 source ~/projects/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 #ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#dadada,bg=cyan"
 source ~/projects/dotfiles/zsh/theme.zsh
-source ~/comcast/corporate-dotfiles/corporate.zsh
+source ~/work/corporate-dotfiles/corporate.zsh
 
 #SDKMAN
-#export SDKMAN_DIR="/home/kevino/.sdkman"
-#[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 export PATH=$PATH:~/bin
 export PATH=$PATH:$HOME/.local/bin
