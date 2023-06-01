@@ -6,7 +6,6 @@ apt-get -y purge \
    gnome-contacts      \
    gnome-mahjongg      \
    gnome-disk-utility  \
-   gnome-screenshot    \
    gnome-mines         \
    gnome-sudoku        \
    thunderbird         \

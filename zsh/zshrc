@@ -39,8 +39,8 @@ source ~/projects/dotfiles/zsh/theme.zsh
 source ~/comcast/corporate-dotfiles/corporate.zsh
 
 #SDKMAN
-export SDKMAN_DIR="/home/kevino/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+#export SDKMAN_DIR="/home/kevino/.sdkman"
+#[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 export PATH=$PATH:~/bin
 export PATH=$PATH:$HOME/.local/bin
