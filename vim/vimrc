@@ -103,6 +103,9 @@ set nofoldenable
 noremap <C-n> :cnext<CR>
 noremap <C-m> :cprevious<CR>
 
+" markdown
+let g:vimwiki_url_maxsave=0
+
 " markdown drawer
 nnoremap <Leader>md :MarkDrawer<cr>
 
