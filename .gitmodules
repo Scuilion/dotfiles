@@ -37,9 +37,6 @@
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
 	url = git@github-scuilion:tpope/vim-fugitive.git
-[submodule "zsh/zsh-autosuggestions"]
-	path = zsh/zsh-autosuggestions
-	url = git@github-scuilion:zsh-users/zsh-autosuggestions.git
 [submodule "vim/bundle/vim-pathogen"]
 	path = vim/bundle/vim-pathogen
 	url = git@github-scuilion:tpope/vim-pathogen.git

@@ -67,3 +67,4 @@ alias desk="cd /home/kevino/.local/share/applications"
 
 alias bat="batcat"
 
+alias sp="stack_print"
