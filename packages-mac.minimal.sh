@@ -1,3 +1,4 @@
 #!/bin/sh
 
-brew install tmux
+brew install jq \
+    kubectl

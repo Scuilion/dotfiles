@@ -12,6 +12,7 @@
 	filemode = false
 	excludesfile = ~/.gitignore_global
 	hooksPath = ~/projects/dotfiles/git/templates
+	editor = /usr/bin/vi
 	# pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
 	plog = log --graph --pretty=format:'%h -%d %s %n' --abbrev-commit --date=relative --branches
@@ -26,7 +27,15 @@
 	smudge = git-lfs smudge -- %f
 [pull]
 	ff = only
+[push]
+        followTags = true
 [includeIf "gitdir:~/work/"]
     path = ~/work/corporate-dotfiles/.gitconfig
 [includeIf "gitdir:~/comcast/"]
     path = ~/comcast/corporate-dotfile/.gitconfig
+[rerere]
+	enabled = true
+[branch]
+	sort = -committerdate
+[maintenance]
+	repo = /Users/koneal476/comcast/crm

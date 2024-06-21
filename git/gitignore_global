@@ -1,8 +1,14 @@
 *.swp
+*.swo
 .zshrc_local
 deps.out
 mvn.out
 npm.out
 macro.vim
 .stop
+application-self.yaml
+.env
+
+junk
+LoadScript.java
 

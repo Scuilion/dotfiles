@@ -1,14 +1,18 @@
+#zmodload zsh/zprof
+
+export PATH=$PATH:/opt/homebrew/bin
+export PATH=$PATH:/opt/homebrew/Cellar/ansible@9/9.6.0_1/bin
+export HOMEBREW_NO_ANALYTICS=1
+
+eval "$(starship init zsh)"
+
 fpath=(~/.zsh/completion $fpath)
 autoload -U compinit
 compinit
 
-if command -v tmux>/dev/null; then
-  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
-fi
-
 export SUDO_EDITOR=vi
 
-# enable Vi mode
+## enable Vi mode
 bindkey -v
 bindkey '^Xh' _complete_help
 bindkey jj vi-cmd-mode
@@ -17,53 +21,31 @@ autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-bindkey $terminfo[kcuu1] up-line-or-beginning-search
-bindkey $terminfo[kcud1] down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
 
-#terminfo find key base on capability name eg kcud1 => "^[[B"
-#bindkey $terminfo[kcuu1] history-beginning-search-backward
-#bindkey $terminfo[kcud1] history-beginning-search-forward
-#bindkey "^[[A" history-beginning-search-backward
-#bindkey "^[[B" history-beginning-search-forward
+#declare -a dirs_to_prepend
 
-declare -a dirs_to_prepend
-
-source ~/projects/dotfiles/zsh/clock.zsh
-source ~/projects/dotfiles/zsh/git_prompt.zsh
 source ~/projects/dotfiles/zsh/kube_ctx.zsh
 source ~/projects/dotfiles/zsh/alias.zsh
 source ~/projects/dotfiles/zsh/history.zsh
-source ~/projects/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#dadada,bg=cyan"
-source ~/projects/dotfiles/zsh/theme.zsh
-source ~/work/corporate-dotfiles/corporate.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#dadada,bg=cyan"
 
-#SDKMAN
+##SDKMAN
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+#add personal utility scripts
 export PATH=$PATH:~/bin
-export PATH=$PATH:$HOME/.local/bin
 
-export DOCKER_BUILDKIT=1
-
-setopt no_aliases
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
-setopt aliases
-
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-
-[[ -s "/home/kevino/.gvm/scripts/gvm" ]] && source "/home/kevino/.gvm/scripts/gvm"
-
-#allow zsh to understand bash completions
-autoload -U +X bashcompinit && bashcompinit
+#setopt aliases
+#
+#zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+#
 
 if [ $commands[kubectl] ]; then
     source <(kubectl completion zsh)
     alias k=kubectl
-    complete -F __start_kubectl k
     export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-    source ~/projects/dotfiles/zsh/kube_ctx.zsh
 fi
-
-export HOMEBREW_NO_ANALYTICS=1
+#
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
