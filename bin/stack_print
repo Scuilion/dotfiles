@@ -1,10 +1,22 @@
-#!/bin/bash
+#!/bin/zsh
 
-[ -z "$1" ] && { echo "need pod name"; exit 1;}
+if [[ -z "$1" ]]; then
+  echo "need pod name" >&2
+  exit 1
+fi
 
-[ -z "$2" ] && { echo "need line count"; exit 1;}
+LINE_COUNT=10
+KEY="stack_trace"
 
-KEY=${3:-'stack_trace'}
-[ -z "$2" ] && { echo "need line count"; exit 1;}
+if [[ -n "$2" ]]; then
+  if [[ "$2" =~ ^[0-9]+$ ]]; then
+    LINE_COUNT="$2"
+    if [[ -n "$3" ]]; then
+      KEY="$3"
+    fi
+  else
+    KEY="$2"
+  fi
+fi
 
-kubectl logs --tail $2 $1 | jq ".$KEY" | sed -e $'s/\\\\n/\\n/g' | sed -e $'s/\\\\t/\\t/g'
+kubectl logs --tail "$LINE_COUNT" "$1" | jq -r ".$KEY" | sed -e 's/\\n/\n/g' -e 's/\\t/\t/g'

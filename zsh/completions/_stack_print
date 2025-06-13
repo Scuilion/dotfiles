@@ -1,0 +1,10 @@
+#compdef stack_print
+
+_stack_print() {
+    local -a pod_names
+    # Get space-separated pod names and let zsh split them into an array.
+    pod_names=($(kubectl get pods -o=jsonpath='{.items[*].metadata.name}' 2>/dev/null))
+    compadd -a pod_names
+}
+
+_stack_print "$@" 
