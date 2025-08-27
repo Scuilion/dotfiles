@@ -1,7 +1,7 @@
 
 HISTFILE="$HOME/.zsh_history"
-if [ -f "$HOME/Dropbox/config/.zsh_history" ]; then
-    HISTFILE="$HOME/Dropbox/config/.zsh_history"
+if [ -f "$HOME/Library/CloudStorage/Dropbox-Personal/config/.zsh_history" ]; then
+    HISTFILE="$HOME/Library/CloudStorage/Dropbox-Personal/config/.zsh_history"
 fi
 
 HISTSIZE=500000

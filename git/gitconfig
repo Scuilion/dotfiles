@@ -7,11 +7,9 @@
         branch = auto
         interactive = auto
         ui = true
-        pager = true
 [core]
 	filemode = false
 	excludesfile = ~/.gitignore_global
-	hooksPath = ~/projects/dotfiles/git/templates
 	# pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
 	plog = log --graph --pretty=format:'%h -%d %s %n' --abbrev-commit --date=relative --branches
@@ -26,7 +24,11 @@
 	smudge = git-lfs smudge -- %f
 [pull]
 	ff = only
-[includeIf "gitdir:~/work/"]
-    path = ~/work/corporate-dotfiles/.gitconfig
-[includeIf "gitdir:~/comcast/"]
-    path = ~/comcast/corporate-dotfile/.gitconfig
+[init]
+	templatedir = ~/.git_template
+[credential]
+	helper = osxkeychain
+[includeIf "gitdir:~/tg-repo/"]
+	path = ~/ko-repo/dotfiles/git/gitconfig-topgolf
+[includeIf "gitdir:~/tt-repo/"]
+	path = ~/ko-repo/dotfiles/git/gitconfig-topgolf

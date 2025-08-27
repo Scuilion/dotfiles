@@ -1,7 +1,7 @@
 scriptencoding utf-8
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 
-let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0
 set omnifunc=ale#completion#OmniFunc
 
 call pathogen#infect()
@@ -83,6 +83,9 @@ noremap <A-r> <C-W>r
 noremap YY "+y<CR>
 noremap P "+gP<CR>
 
+" so I can highlight to the end of the line, not the next line
+xnoremap $ g_
+
 "ca stands for command abbreviations
 "always save all
 ca w wa
@@ -134,7 +137,7 @@ let g:NERDDefaultAlign='left'
 let g:NERDCommentEmptyLines=1
 
 " vimwiki
-let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/Library/CloudStorage/Dropbox-Personal/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
 
 augroup markdownSpell
     autocmd!
@@ -194,3 +197,4 @@ func! Reminder()
   call popup_notification(it, #{ line: 2, col: 20, highlight: 'PmenuSel', time: 3000} )
 endfunc
 
+"set re=0

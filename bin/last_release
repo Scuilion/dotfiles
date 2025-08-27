@@ -1,0 +1,53 @@
+#!/bin/zsh
+
+# Function to get the last release version for a given directory
+get_last_release() {
+    local target_dir="$1"
+    
+    # Change to the target directory if specified
+    if [ -n "$target_dir" ]; then
+        local full_path="/Users/kevin.oneal/tg-repo/$target_dir"
+        if [ ! -d "$full_path" ]; then
+            echo "Directory '$full_path' not found" >&2
+            return 1
+        fi
+        cd "$full_path" || return 1
+    fi
+    
+    # First check if we can find the workflow run
+    RUN_ID=$(gh run list -w 'Semantic Release' -L 1 --json databaseId --jq '.[0].databaseId' 2>/dev/null)
+    
+    if [ -z "$RUN_ID" ]; then
+        echo "No 'Semantic Release' workflow runs found in $(basename "$PWD")" >&2
+        return 1
+    fi
+    
+    # Get the current folder name
+    FOLDER_NAME=$(basename "$PWD")
+    
+    # Now get the log for the specific run and extract version
+    VERSION=$(gh run view "$RUN_ID" --log 2>/dev/null | grep new_release_version | grep -v '\${NEW_RELEASE_VERSION}' | grep -o 'new_release_version: "[^"]*"' | sed 's/.*"\([^"]*\)".*/\1/')
+    
+    if [ -n "$VERSION" ]; then
+        echo "$FOLDER_NAME $VERSION"
+    else
+        echo "No version found in logs for $(basename "$PWD")" >&2
+        return 1
+    fi
+    
+    # Return to original directory if we changed
+    if [ -n "$target_dir" ]; then
+        cd - > /dev/null
+    fi
+}
+
+# Main script logic
+if [ $# -eq 0 ]; then
+    # No arguments - run in current directory
+    get_last_release
+else
+    # Arguments provided - process each repo
+    for repo in "$@"; do
+        get_last_release "$repo"
+    done
+fi

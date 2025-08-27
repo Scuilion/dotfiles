@@ -28,7 +28,6 @@ alias gcam='git commit -a -m'
 alias gcmsg='git commit -m'
 
 alias gcl='git clone --recursive'
-alias gcm='git checkout master'
 alias gcd='git checkout develop'
 alias gco='git checkout'
 
@@ -39,7 +38,7 @@ alias gst='git status'
 
 #GREP
 alias -g G='| grep -i'
-alias grep='grep --exclude-dir={node_modules,dist,target,build,vendor,.git,.angular} --color=auto'
+alias grep='grep --exclude-dir={node_modules,dist,target,build,vendor,.git,.angular,venv,.tox} --color=auto'
 
 alias fp='ps aux | grep'
 
@@ -66,4 +65,10 @@ alias chgrp='chgrp --preserve-root'
 alias desk="cd /home/kevino/.local/share/applications"
 
 alias bat="batcat"
+
+# python
+alias my_venv='python3 -m venv venv --prompt ${PWD##*/} && source venv/bin/activate'
+
+# terraform
+alias tf=terraform
 

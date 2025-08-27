@@ -6,3 +6,7 @@ npm.out
 macro.vim
 .stop
 
+haproxy.cfg.shared
+test-dir
+
+**/.claude/settings.local.json

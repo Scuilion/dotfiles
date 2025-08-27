@@ -1,10 +1,5 @@
-fpath=(~/.zsh/completion $fpath)
-autoload -U compinit
-compinit
-
-if command -v tmux>/dev/null; then
-  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
-fi
+# Performance optimization: defer compinit
+fpath=(~/ko-repo/dotfiles/zsh/completions $fpath)
 
 export SUDO_EDITOR=vi
 
@@ -17,8 +12,10 @@ autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-bindkey $terminfo[kcuu1] up-line-or-beginning-search
-bindkey $terminfo[kcud1] down-line-or-beginning-search
+#bindkey $terminfo[kcuu1] up-line-or-beginning-search
+#bindkey $terminfo[kcud1] down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
 
 #terminfo find key base on capability name eg kcud1 => "^[[B"
 #bindkey $terminfo[kcuu1] history-beginning-search-backward
@@ -28,41 +25,68 @@ bindkey $terminfo[kcud1] down-line-or-beginning-search
 
 declare -a dirs_to_prepend
 
-source ~/projects/dotfiles/zsh/clock.zsh
-source ~/projects/dotfiles/zsh/git_prompt.zsh
-source ~/projects/dotfiles/zsh/kube_ctx.zsh
-source ~/projects/dotfiles/zsh/alias.zsh
-source ~/projects/dotfiles/zsh/history.zsh
-source ~/projects/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#dadada,bg=cyan"
-source ~/projects/dotfiles/zsh/theme.zsh
-source ~/work/corporate-dotfiles/corporate.zsh
+# Load essential configurations first
+source ~/ko-repo/dotfiles/zsh/clock.zsh
+source ~/ko-repo/dotfiles/zsh/alias.zsh
+source ~/ko-repo/dotfiles/zsh/history.zsh
+source ~/ko-repo/dotfiles/zsh/functions.zsh
 
-#SDKMAN
-source "$HOME/.sdkman/bin/sdkman-init.sh"
+# Topgolf-specific config (private repo, may not exist on every machine)
+[[ -f ~/tg-repo/coporate-dotfiles/zsh/zshrc ]] && source ~/tg-repo/coporate-dotfiles/zsh/zshrc
 
 export PATH=$PATH:~/bin
 export PATH=$PATH:$HOME/.local/bin
 
 export DOCKER_BUILDKIT=1
 
-setopt no_aliases
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
-setopt aliases
-
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-
+# GVM - only load if installed
 [[ -s "/home/kevino/.gvm/scripts/gvm" ]] && source "/home/kevino/.gvm/scripts/gvm"
 
 #allow zsh to understand bash completions
 autoload -U +X bashcompinit && bashcompinit
 
+# Load completions last
+autoload -Uz compinit
+compinit
+
 if [ $commands[kubectl] ]; then
     source <(kubectl completion zsh)
-    alias k=kubectl
     complete -F __start_kubectl k
+    alias kubectl=kubecolor
+    alias k="kubecolor"
     export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-    source ~/projects/dotfiles/zsh/kube_ctx.zsh
+    source ~/ko-repo/dotfiles/zsh/kube_ctx.zsh
 fi
 
+export VAULT_ADDR=https://vault.preprod.topgolf.io
+export PATH="/opt/homebrew/opt/mysql/bin:$PATH"
+export ANSIBLE_VAULT_PASSWORD_FILE=~/.ansible_vault_pass.txt
+
+# NVM - only load if installed
+if [ -s "$HOME/.nvm/nvm.sh" ]; then
+  export NVM_DIR="$HOME/.nvm"
+  source "$NVM_DIR/nvm.sh"
+fi
+
+# Python pyenv - only load if installed
+if command -v pyenv >/dev/null 2>&1; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init - zsh)"
+fi
+
+source ~/ko-repo/dotfiles/zsh/git_prompt.zsh
+source ~/ko-repo/dotfiles/zsh/kube_ctx.zsh
+source ~/ko-repo/dotfiles/zsh/theme.zsh
+
+source ~/ko-repo/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+export PATH=$PATH:/Users/kevin.oneal/go/bin
+
+# Load private secrets if they exist
+if [[ -f "$HOME/.zsh_secrets" ]]; then
+  source "$HOME/.zsh_secrets"
+fi
