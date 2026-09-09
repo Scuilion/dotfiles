@@ -32,7 +32,7 @@ source ~/ko-repo/dotfiles/zsh/history.zsh
 source ~/ko-repo/dotfiles/zsh/functions.zsh
 
 # Topgolf-specific config (private repo, may not exist on every machine)
-[[ -f ~/tg-repo/coporate-dotfiles/zsh/zshrc ]] && source ~/tg-repo/coporate-dotfiles/zsh/zshrc
+[[ -f ~/tg-repo/corporate-dotfiles/zsh/zshrc ]] && source ~/tg-repo/corporate-dotfiles/zsh/zshrc
 
 export PATH=$PATH:~/bin
 export PATH=$PATH:$HOME/.local/bin
